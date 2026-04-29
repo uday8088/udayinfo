@@ -1,0 +1,127 @@
+/* Keep contact section visible + stop flicker */
+.contact-section.no-animate {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  position: relative;
+  z-index: 1;
+  background: #0f1724; /* slight contrast so it isn't pitch black */
+}
+
+/* Cancel any child animations */
+.contact-section.no-animate * { animation: none !important; }
+
+/* If any library adds hide classes inside contact, override them here */
+.contact-section [hidden] { display: block !important; }
+.contact-section .hidden,
+.contact-section .is-hidden {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Ensure key containers can't collapse */
+.contact-section .contact-form,
+.contact-section .form-wrap,
+.contact-section form {
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+/* Layout: info + form columns */
+.contact-section .contact-content {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+/* Form sizing */
+.contact-section .form-wrap { max-width: 720px; margin: 0 auto; }
+
+/* Rows: first/last on one line; others full */
+.contact-section .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+.contact-section .col.full { grid-column: 1 / -1; }
+
+.contact-section label {
+  display: block;
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  margin-bottom: 6px;
+}
+.contact-section input,
+.contact-section select,
+.contact-section textarea {
+  width: 100%;
+  background: #1c2633;
+  color: #e6edf3;
+  border: 1px solid #2b3a4d;
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.contact-section input::placeholder,
+.contact-section textarea::placeholder { color: #8ea0b5; }
+.contact-section input:focus,
+.contact-section select:focus,
+.contact-section textarea:focus {
+  border-color: #4c86ff;
+  box-shadow: 0 0 0 3px rgba(76,134,255,.15);
+}
+
+/* Slim submit button (override any full-width theme rule) */
+.contact-section .submit-btn {
+  width: auto !important;
+  display: inline-block !important;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  background: #4c86ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.contact-section .submit-btn:hover { filter: brightness(1.05); }
+
+/* Left info links */
+.contact-section .contact-info .contact-method a {
+  color: #9fb7ff; text-decoration: none;
+}
+.contact-section .contact-info .contact-method a:hover { color: #e5c761; }
+
+/* Toast (2s popup) */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #0f1724;
+  color: #e6edf3;
+  border: 1px solid #2b3a4d;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 9999;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { border-color: #3fb950; }
+.toast.error   { border-color: #e5534b; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-section .contact-content { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 700px) {
+  .contact-section .row { grid-template-columns: 1fr; }
+}
