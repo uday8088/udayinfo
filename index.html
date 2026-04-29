@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uday Ayyagari - Visionary Technology Leader & Innovation Catalyst</title>
+    <meta name="description" content="Uday Ayyagari - Executive Technology Leader, Digital Transformation Expert, and Innovation Strategist driving business excellence through cutting-edge solutions.">
+    <link rel="icon" type="image/x-icon" href="assets/images/uday.ico">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── Hero executive photo: circular clip + transparent white surround ── */
+        .exec-photo-wrap {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 0.5rem;
+            position: relative;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.15),
+                        0 0 32px 6px rgba(100,160,255,0.20);
+        }
+        .exec-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+            display: block;
+            mix-blend-mode: multiply;
+            filter: contrast(1.05);
+        }
+        /* Force image-frame fully transparent so multiply blends against the hero bg */
+        .hero-image .image-frame,
+        .hero-image .image-frame * {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+        /* Ensure the image-frame doesn't impose its own fixed height */
+        .hero-image .image-frame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: transparent !important;
+        }
+        /* Suppress any white background the frame might have */
+        .hero-image .image-frame::before,
+        .hero-image .image-frame::after {
+            display: none !important;
+        }
+        @media (max-width: 768px) {
+            .exec-photo-wrap { width: 190px; height: 190px; }
+        }
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════
+         THEME SYSTEM — 3 themes, WCAG 2.1 AA compliant
+         All colours tested at ≥ 4.5:1 contrast ratio
+    ══════════════════════════════════════════════════════ -->
+    <style id="theme-vars">
+        /* ── DARK (default) ────────────────────────────────── */
+        [data-theme="dark"] {
+            --bg-base:        #060a16;
+            --bg-surface:     #0d1528;
+            --bg-card:        rgba(255,255,255,0.04);
+            --bg-card-border: rgba(255,255,255,0.09);
+            --text-primary:   #e8eaf6;
+            --text-secondary: rgba(232,234,246,0.65);
+            --text-muted:     rgba(232,234,246,0.38);
+            --accent:         #64b5f6;
+            --accent-2:       #b388ff;
+            --accent-gold:    #f59e0b;
+            --cta-bg:         linear-gradient(135deg,#1a73e8,#0d47a1);
+            --cta-text:       #fff;
+            --nav-bg:         rgba(6,10,22,0.92);
+            --nav-border:     rgba(100,180,255,0.12);
+            --nav-link:       rgba(232,234,246,0.75);
+            --nav-link-hover: #64b5f6;
+            --hero-overlay:   rgba(6,10,22,0.55);
+            --section-alt:    #0a1020;
+            --metric-val:     #f59e0b;
+            --tag-bg:         rgba(100,180,255,0.10);
+            --tag-border:     rgba(100,180,255,0.25);
+            --tag-text:       #90caf9;
+            --drawer-bg:      linear-gradient(160deg,#0d1528,#091020);
+            --focus-ring:     #64b5f6;
+            --scrollbar-thumb:#1a3a5c;
+        }
+
+        /* ── LIGHT / EXECUTIVE ─────────────────────────────── */
+        [data-theme="light"] {
+            --bg-base:        #f4f6fb;
+            --bg-surface:     #ffffff;
+            --bg-card:        rgba(0,0,0,0.03);
+            --bg-card-border: rgba(0,0,0,0.10);
+            --text-primary:   #0f172a;
+            --text-secondary: #334155;
+            --text-muted:     #64748b;
+            --accent:         #1a56c4;
+            --accent-2:       #6d28d9;
+            --accent-gold:    #b45309;
+            --cta-bg:         linear-gradient(135deg,#1a56c4,#0d3a8a);
+            --cta-text:       #fff;
+            --nav-bg:         rgba(255,255,255,0.96);
+            --nav-border:     rgba(26,86,196,0.15);
+            --nav-link:       #334155;
+            --nav-link-hover: #1a56c4;
+            --hero-overlay:   rgba(10,20,50,0.62);
+            --section-alt:    #eef1f8;
+            --metric-val:     #b45309;
+            --tag-bg:         rgba(26,86,196,0.08);
+            --tag-border:     rgba(26,86,196,0.22);
+            --tag-text:       #1a56c4;
+            --drawer-bg:      linear-gradient(160deg,#ffffff,#f1f5fd);
+            --focus-ring:     #1a56c4;
+            --scrollbar-thumb:#c7d2e8;
+        }
+
+        /* ── GEN-Z / NEO ───────────────────────────────────── */
+        [data-theme="genz"] {
+            --bg-base:        #080510;
+            --bg-surface:     #100c1a;
+            --bg-card:        rgba(140,80,255,0.06);
+            --bg-card-border: rgba(140,80,255,0.18);
+            --text-primary:   #f0ecff;
+            --text-secondary: rgba(240,236,255,0.72);
+            --text-muted:     rgba(240,236,255,0.42);
+            --accent:         #a855f7;
+            --accent-2:       #22d3a0;
+            --accent-gold:    #22d3a0;
+            --cta-bg:         linear-gradient(135deg,#a855f7,#6d28d9);
+            --cta-text:       #fff;
+            --nav-bg:         rgba(8,5,16,0.94);
+            --nav-border:     rgba(168,85,247,0.20);
+            --nav-link:       rgba(240,236,255,0.70);
+            --nav-link-hover: #a855f7;
+            --hero-overlay:   rgba(8,5,16,0.50);
+            --section-alt:    #0c0917;
+            --metric-val:     #22d3a0;
+            --tag-bg:         rgba(168,85,247,0.10);
+            --tag-border:     rgba(168,85,247,0.28);
+            --tag-text:       #c084fc;
+            --drawer-bg:      linear-gradient(160deg,#100c1a,#080510);
+            --focus-ring:     #a855f7;
+            --scrollbar-thumb:#2d1a4a;
+        }
+
+        /* ── UNIVERSAL: wire variables to actual elements ── */
+        body {
+            background-color: var(--bg-base) !important;
+            color: var(--text-primary) !important;
+            transition: background-color 0.28s ease, color 0.28s ease;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--nav-bg) !important;
+            border-bottom: 1px solid var(--nav-border) !important;
+        }
+        .nav-brand h2, .nav-brand h2 * { color: var(--accent) !important; }
+        .nav-link { color: var(--nav-link) !important; }
+        .nav-link:hover, .nav-link.active { color: var(--nav-link-hover) !important; }
+
+        /* Sections */
+        .about-section, .podcasts-section, .thought-leadership,
+        .case-studies, .footer { background: var(--bg-base) !important; }
+        .case-studies { background: var(--section-alt) !important; }
+
+        /* Section titles */
+        .section-title { color: var(--text-primary) !important; }
+        .section-subtitle, .case-description, .about-text p { color: var(--text-secondary) !important; }
+
+        /* Cards */
+        .media-card, .insight-card, .case-study-card,
+        .expertise-item, .stat-item {
+            background: var(--bg-surface) !important;
+            border-color: var(--bg-card-border) !important;
+        }
+        .insight-card h3, .media-content h3 { color: var(--text-primary) !important; }
+        .insight-content p, .media-content p { color: var(--text-secondary) !important; }
+
+        /* Case study panels */
+        .pf-content {
+            background: var(--bg-surface) !important;
+            border-color: var(--bg-card-border) !important;
+        }
+        .pf-nav-item {
+            background: var(--bg-card) !important;
+            border-color: var(--bg-card-border) !important;
+        }
+        .pf-nav-item:hover {
+            background: var(--tag-bg) !important;
+            border-color: var(--accent) !important;
+        }
+        .pf-nav-item.pf-active {
+            background: var(--tag-bg) !important;
+            border-color: var(--accent) !important;
+        }
+        .pf-num { color: var(--bg-card-border) !important; }
+        .pf-nav-item.pf-active .pf-num { color: var(--accent) !important; }
+        .pf-txt h4 { color: var(--text-primary) !important; }
+        .pf-txt p  { color: var(--text-muted) !important; }
+        .pf-type   { color: var(--accent) !important; }
+        .pf-details h3 { color: var(--text-primary) !important; }
+        .pf-desc { color: var(--text-secondary) !important; }
+        .pf-metric { background: var(--bg-card) !important; border-color: var(--bg-card-border) !important; }
+        .pf-mval  { color: var(--metric-val) !important; }
+        .pf-mlbl  { color: var(--text-muted) !important; }
+        .pf-tech  { background: var(--tag-bg) !important; border-color: var(--tag-border) !important; color: var(--tag-text) !important; }
+        .pf-cta   { background: var(--cta-bg) !important; color: var(--cta-text) !important; }
+
+        /* Metric gold numbers */
+        .metric-value, .pf-mval { color: var(--metric-val) !important; }
+
+        /* About stats */
+        .stat-number { color: var(--accent) !important; }
+        .stat-label  { color: var(--text-secondary) !important; }
+
+        /* Executive achievement cards */
+        .exec-card {
+            background: var(--bg-card) !important;
+            border-color: var(--bg-card-border) !important;
+        }
+        .exec-card h4 { color: var(--text-primary) !important; }
+        .exec-card-tagline { color: var(--text-muted) !important; }
+        .exec-card-cta { color: var(--accent) !important; }
+        .exec-tooltip {
+            background: var(--bg-surface) !important;
+            border-color: var(--bg-card-border) !important;
+            color: var(--text-secondary) !important;
+        }
+        .exec-tooltip-label { color: var(--accent) !important; }
+
+        /* Drawer */
+        #csDrawer {
+            background: var(--drawer-bg) !important;
+            border-left-color: var(--bg-card-border) !important;
+        }
+        .csd-header { background: var(--bg-surface) !important; border-color: var(--bg-card-border) !important; }
+        .csd-eyebrow { color: var(--accent) !important; }
+        .csd-title  { color: var(--text-primary) !important; }
+        .csd-text   { color: var(--text-secondary) !important; }
+        .csd-text strong { color: var(--accent) !important; }
+        .csd-metric { background: var(--bg-card) !important; border-color: var(--bg-card-border) !important; }
+        .csd-metric-val { background: linear-gradient(90deg,var(--metric-val),var(--accent-2)) !important;
+            -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+        .csd-metric-lbl { color: var(--text-muted) !important; }
+        .csd-metric-sub { color: var(--text-muted) !important; }
+        .csd-tag { background: var(--tag-bg) !important; border-color: var(--tag-border) !important; color: var(--tag-text) !important; }
+        .csd-close { background: var(--bg-card) !important; border-color: var(--bg-card-border) !important; color: var(--text-muted) !important; }
+
+        /* Footer */
+        .footer { background: var(--bg-surface) !important; border-top: 1px solid var(--bg-card-border) !important; }
+        .footer-brand h3 { color: var(--text-primary) !important; }
+        .footer-brand p  { color: var(--text-muted) !important; }
+        .link-group h4   { color: var(--text-primary) !important; }
+        .link-group a    { color: var(--text-muted) !important; }
+        .link-group a:hover { color: var(--accent) !important; }
+        .footer-social a { color: var(--text-muted) !important; }
+        .footer-social a:hover { color: var(--accent) !important; }
+        .footer-bottom p { color: var(--text-muted) !important; }
+
+        /* Contact section */
+        .mc-section { background: var(--section-alt) !important; }
+        .mc-h { color: var(--text-primary) !important; }
+        .mc-form label { color: var(--text-secondary) !important; }
+        .mc-form input, .mc-form select, .mc-form textarea {
+            background: var(--bg-card) !important;
+            color: var(--text-primary) !important;
+            border-color: var(--bg-card-border) !important;
+        }
+        .mc-form input:focus, .mc-form select:focus, .mc-form textarea:focus {
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(100,180,255,0.15) !important;
+        }
+        .mc-btn { background: var(--accent) !important; }
+
+        /* ── Light theme: hero text stays white (over dark photo bg) ── */
+        [data-theme="light"] .hero-title,
+        [data-theme="light"] .hero-subtitle,
+        [data-theme="light"] .title-line,
+        [data-theme="light"] .hero-cta .cta-primary,
+        [data-theme="light"] .hero-cta .cta-secondary { color: #fff !important; }
+
+        /* ── Light theme: force dark readable text everywhere ── */
+        [data-theme="light"] .pf-txt h4           { color: #0f172a !important; }
+        [data-theme="light"] .pf-txt p            { color: #475569 !important; }
+        [data-theme="light"] .pf-num              { color: #cbd5e1 !important; }
+        [data-theme="light"] .pf-nav-item.pf-active .pf-num { color: #1a56c4 !important; }
+        [data-theme="light"] .pf-type             { color: #1a56c4 !important; }
+        [data-theme="light"] .pf-details h3       { color: #0f172a !important; }
+        [data-theme="light"] .pf-desc             { color: #334155 !important; }
+        [data-theme="light"] .pf-mlbl             { color: #64748b !important; }
+        [data-theme="light"] .pf-tech             { color: #1a56c4 !important; }
+        [data-theme="light"] .pf-nav-item         { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .pf-nav-item:hover   { background: #eff6ff !important; border-color: #1a56c4 !important; }
+        [data-theme="light"] .pf-nav-item.pf-active { background: #eff6ff !important; border-color: #1a56c4 !important; }
+        [data-theme="light"] .pf-content          { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .pf-metric           { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .section-title       { color: #0f172a !important; }
+        [data-theme="light"] .section-subtitle    { color: #334155 !important; }
+        [data-theme="light"] .about-text h3       { color: #0f172a !important; }
+        [data-theme="light"] .about-text p        { color: #334155 !important; }
+        [data-theme="light"] .stat-number         { color: #1a56c4 !important; }
+        [data-theme="light"] .stat-label          { color: #475569 !important; }
+        [data-theme="light"] .insight-card        { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .insight-card h3     { color: #0f172a !important; }
+        [data-theme="light"] .insight-content p   { color: #334155 !important; }
+        [data-theme="light"] .insight-category    { color: #1a56c4 !important; }
+        [data-theme="light"] .media-card          { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .media-content h3    { color: #0f172a !important; }
+        [data-theme="light"] .media-content p     { color: #334155 !important; }
+        [data-theme="light"] .media-type          { color: #1a56c4 !important; }
+        [data-theme="light"] .exec-card           { background: #ffffff !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .exec-card h4        { color: #0f172a !important; }
+        [data-theme="light"] .exec-card-tagline   { color: #475569 !important; }
+        [data-theme="light"] .exec-card-cta       { color: #1a56c4 !important; }
+        [data-theme="light"] .exec-tooltip        { background: #ffffff !important; border-color: #e2e8f0 !important; color: #334155 !important; }
+        [data-theme="light"] .exec-tooltip-label  { color: #1a56c4 !important; }
+        [data-theme="light"] .case-studies        { background: #eef2f9 !important; }
+        [data-theme="light"] .mc-section          { background: #eef2f9 !important; }
+        [data-theme="light"] .mc-h                { color: #0f172a !important; }
+        [data-theme="light"] .mc-form label       { color: #334155 !important; }
+        [data-theme="light"] .mc-form input,
+        [data-theme="light"] .mc-form select,
+        [data-theme="light"] .mc-form textarea    { background: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important; }
+        [data-theme="light"] .mc-cta a            { background: #ffffff !important; border-color: #cbd5e1 !important; color: #334155 !important; }
+        [data-theme="light"] .footer              { background: #ffffff !important; border-top: 1px solid #e2e8f0 !important; }
+        [data-theme="light"] .footer-brand h3     { color: #0f172a !important; }
+        [data-theme="light"] .footer-brand p,
+        [data-theme="light"] .link-group a,
+        [data-theme="light"] .footer-bottom p     { color: #475569 !important; }
+        [data-theme="light"] .link-group h4       { color: #0f172a !important; }
+        [data-theme="light"] .link-group a:hover,
+        [data-theme="light"] .footer-social a:hover { color: #1a56c4 !important; }
+        [data-theme="light"] .footer-social a     { color: #64748b !important; }
+        [data-theme="light"] .read-more           { color: #1a56c4 !important; }
+        [data-theme="light"] .publish-date,
+        [data-theme="light"] .read-time           { color: #64748b !important; }
+        [data-theme="light"] #csDrawer            { background: #ffffff !important; border-left-color: #e2e8f0 !important; }
+        [data-theme="light"] .csd-header          { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .csd-eyebrow         { color: #1a56c4 !important; }
+        [data-theme="light"] .csd-title           { color: #0f172a !important; }
+        [data-theme="light"] .csd-text            { color: #334155 !important; }
+        [data-theme="light"] .csd-text strong     { color: #1a56c4 !important; }
+        [data-theme="light"] .csd-metric          { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+        [data-theme="light"] .csd-metric-lbl,
+        [data-theme="light"] .csd-metric-sub      { color: #64748b !important; }
+        [data-theme="light"] .csd-tag             { background: #eff6ff !important; border-color: #bfdbfe !important; color: #1a56c4 !important; }
+        [data-theme="light"] .csd-close           { background: #f1f5f9 !important; border-color: #e2e8f0 !important; color: #475569 !important; }
+        [data-theme="light"] .csd-footnote        { color: #94a3b8 !important; }
+        [data-theme="light"] #theme-switcher      { background: #ffffff !important; border-color: #e2e8f0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; }
+        [data-theme="light"] .th-btn              { color: #475569 !important; }
+        [data-theme="light"] .th-btn:hover        { background: #f1f5f9 !important; color: #0f172a !important; }
+        [data-theme="light"] #ck-pill             { background: rgba(255,255,255,0.95) !important; color: #475569 !important; border-color: #e2e8f0 !important; }
+
+        /* ── Gen-Z: gradient text on hero title ── */
+        [data-theme="genz"] .title-line.highlight {
+            background: linear-gradient(90deg,#a855f7,#22d3a0) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        [data-theme="genz"] .about-text h3 {
+            background: linear-gradient(90deg,#a855f7,#22d3a0) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        [data-theme="genz"] .section-title {
+            background: linear-gradient(90deg,#a855f7,#22d3a0) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* ── ADA: universal focus ring ── */
+        *:focus-visible {
+            outline: 3px solid var(--focus-ring) !important;
+            outline-offset: 3px !important;
+        }
+
+        /* ── Scrollbar theming ── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+
+        /* ── Skip-to-content link (ADA) ── */
+        .skip-link {
+            position: absolute; top: -60px; left: 16px; z-index: 99999;
+            background: var(--accent); color: var(--bg-base);
+            padding: 10px 18px; border-radius: 0 0 8px 8px;
+            font-weight: 700; font-size: 0.9rem;
+            transition: top 0.2s;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ── THEME SWITCHER PILL ── */
+        #theme-switcher {
+            position: fixed;
+            bottom: 56px;   /* sits above Cookie Settings pill */
+            right: 16px;
+            z-index: 9100;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+            backdrop-filter: blur(8px);
+        }
+        .th-btn {
+            width: 34px; height: 34px;
+            border-radius: 50%; border: none;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 15px;
+            background: transparent;
+            color: var(--text-muted);
+            transition: background 0.18s, color 0.18s, transform 0.15s;
+            position: relative;
+        }
+        .th-btn:hover { background: var(--bg-card); color: var(--text-primary); transform: scale(1.12); }
+        .th-btn.active {
+            background: var(--accent) !important;
+            color: var(--bg-base) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        /* Tooltip labels on hover */
+        .th-btn::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%; transform: translateX(-50%);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--bg-card-border);
+            font-size: 0.65rem; font-weight: 700;
+            white-space: nowrap;
+            padding: 3px 8px; border-radius: 6px;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.15s;
+        }
+        .th-btn:hover::after { opacity: 1; }
+
+        /* ── Gen-Z accent glows ── */
+        [data-theme="genz"] #theme-switcher {
+            box-shadow: 0 0 0 1px rgba(168,85,247,0.4), 0 4px 24px rgba(168,85,247,0.2);
+        }
+        [data-theme="genz"] .pf-cta {
+            box-shadow: 0 0 16px rgba(168,85,247,0.4) !important;
+        }
+        [data-theme="genz"] .case-cta,
+        [data-theme="genz"] .pf-cta {
+            background: linear-gradient(135deg,#a855f7,#6d28d9) !important;
+            color: #fff !important;
+        }
+        [data-theme="genz"] .exec-card:hover {
+            box-shadow: 0 8px 32px rgba(168,85,247,0.25), 0 0 0 1px rgba(168,85,247,0.3) !important;
+        }
+
+        /* Smooth transition on theme switch */
+        body, .navbar, .footer, .pf-content, .pf-nav-item,
+        .exec-card, #csDrawer, .mc-section, .media-card, .insight-card {
+            transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease !important;
+        }
+    </style>
+
+</head>
+<body>
+    <a href="#home" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>UDAY AYYAGARI</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu" role="list">
+                <li><a href="#home" class="nav-link" aria-label="Go to Home section">HOME</a></li>
+                <li><a href="#about" class="nav-link" aria-label="Go to About section">ABOUT</a></li>
+                <li><a href="#podcasts" class="nav-link" aria-label="Go to Media section">MEDIA</a></li>
+                <li><a href="#thought-leadership" class="nav-link" aria-label="Go to Insights section">INSIGHTS</a></li>
+                <li><a href="#case-studies" class="nav-link" aria-label="Go to Portfolio section">PORTFOLIO</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Go to Contact section">CONTACT</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">VISIONARY</span>
+                    <span class="title-line">TECHNOLOGY</span>
+                    <span class="title-line highlight">LEADER</span>
+                </h1>
+                <p class="hero-subtitle">Transforming businesses through innovative technology solutions and strategic digital leadership</p>
+                <div class="hero-cta">
+			<button class="cta-primary" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });">Explore My Journey
+			</button>
+			<button class="cta-secondary" onclick="document.getElementById('case-studies').scrollIntoView({ behavior: 'smooth' });">View Portfolio
+			</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-frame">
+                    <div class="exec-photo-wrap">
+                        <img src="assets/images/uday-ayyagari-executive.jpg" alt="Uday Ayyagari - Technology Executive">
+                    </div>
+                    <div class="image-glow"></div>
+		    <div><center><br>Currently servicing as CEO, <a href="https://aurus.ai"><font color="white">aurus.ai</font></a></center><br></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Executive Profile</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Driving Digital Transformation & Innovation Excellence</h3>
+                    <p>As a seasoned technology executive and digital transformation leader, Uday Ayyagari brings over two decades of experience in architecting enterprise solutions, leading high-performance teams, and driving strategic initiatives that deliver measurable business impact.</p>
+                    <p>With expertise spanning cloud architecture, AI/ML implementation, and organizational transformation, Uday has consistently delivered breakthrough results for Fortune 500 companies and emerging enterprises alike.</p>
+                    <!-- ═══ Executive Achievement Cards ═══ -->
+                    <style>
+                        .exec-grid {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 14px;
+                            margin-top: 24px;
+                        }
+                        .exec-card {
+                            position: relative;
+                            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+                            border: 1px solid rgba(255,255,255,0.12);
+                            border-radius: 14px;
+                            padding: 18px 16px 14px;
+                            cursor: pointer;
+                            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+                            overflow: visible;
+                            backdrop-filter: blur(6px);
+                        }
+                        .exec-card:hover {
+                            transform: translateY(-4px);
+                            border-color: rgba(100,180,255,0.45);
+                            box-shadow: 0 12px 36px rgba(60,130,220,0.22), 0 0 0 1px rgba(100,180,255,0.15);
+                        }
+                        .exec-card-icon {
+                            width: 42px; height: 42px;
+                            border-radius: 10px;
+                            display: flex; align-items: center; justify-content: center;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                        }
+                        .exec-card:nth-child(1) .exec-card-icon { background: linear-gradient(135deg,#1a73e8,#0d47a1); color:#7ec8ff; }
+                        .exec-card:nth-child(2) .exec-card-icon { background: linear-gradient(135deg,#7b2ff7,#4a00b4); color:#d4aaff; }
+                        .exec-card:nth-child(3) .exec-card-icon { background: linear-gradient(135deg,#00897b,#004d40); color:#80cbc4; }
+                        .exec-card:nth-child(4) .exec-card-icon { background: linear-gradient(135deg,#e65100,#bf360c); color:#ffcc80; }
+                        .exec-card h4 {
+                            font-size: 0.82rem;
+                            font-weight: 700;
+                            letter-spacing: 0.06em;
+                            text-transform: uppercase;
+                            color: #e8eaf6;
+                            margin: 0 0 4px;
+                        }
+                        .exec-card-tagline {
+                            font-size: 0.72rem;
+                            color: rgba(255,255,255,0.45);
+                            line-height: 1.3;
+                        }
+                        /* ── Hover tooltip ── */
+                        .exec-tooltip {
+                            position: absolute;
+                            bottom: calc(100% + 10px);
+                            left: 50%; transform: translateX(-50%);
+                            width: 230px;
+                            background: rgba(10,15,30,0.97);
+                            border: 1px solid rgba(100,180,255,0.25);
+                            border-radius: 10px;
+                            padding: 12px 14px;
+                            font-size: 0.72rem;
+                            color: rgba(255,255,255,0.8);
+                            line-height: 1.5;
+                            pointer-events: none;
+                            opacity: 0;
+                            transition: opacity 0.18s ease;
+                            z-index: 50;
+                            box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+                            text-align: left;
+                        }
+                        .exec-tooltip::after {
+                            content: '';
+                            position: absolute;
+                            top: 100%; left: 50%; transform: translateX(-50%);
+                            border: 6px solid transparent;
+                            border-top-color: rgba(100,180,255,0.25);
+                        }
+                        .exec-card:hover .exec-tooltip { opacity: 1; }
+                        .exec-tooltip-label {
+                            font-size: 0.65rem;
+                            font-weight: 700;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: #64b5f6;
+                            margin-bottom: 5px;
+                        }
+                        /* ── Click-to-open badge ── */
+                        .exec-card-cta {
+                            margin-top: 10px;
+                            font-size: 0.65rem;
+                            color: rgba(100,180,255,0.7);
+                            letter-spacing: 0.04em;
+                            display: flex; align-items: center; gap: 4px;
+                        }
+                        .exec-card-cta i { font-size: 0.6rem; }
+                        /* ══ Modal overlay ══ */
+                        .exec-modal-overlay {
+                            display: none;
+                            position: fixed; inset: 0;
+                            background: rgba(5,8,20,0.82);
+                            backdrop-filter: blur(8px);
+                            z-index: 9000;
+                            align-items: center; justify-content: center;
+                            padding: 20px;
+                        }
+                        .exec-modal-overlay.open { display: flex; }
+                        .exec-modal {
+                            background: linear-gradient(160deg, #0d1528 0%, #091020 60%, #0a1a2e 100%);
+                            border: 1px solid rgba(100,180,255,0.22);
+                            border-radius: 20px;
+                            max-width: 560px; width: 100%;
+                            max-height: 90vh; overflow-y: auto;
+                            padding: 36px 36px 28px;
+                            position: relative;
+                            box-shadow: 0 24px 72px rgba(0,0,0,0.7), 0 0 0 1px rgba(100,180,255,0.08);
+                            animation: modalIn 0.28s cubic-bezier(.34,1.5,.64,1);
+                        }
+                        @keyframes modalIn {
+                            from { opacity:0; transform:scale(0.92) translateY(20px); }
+                            to   { opacity:1; transform:scale(1) translateY(0); }
+                        }
+                        .exec-modal-close {
+                            position: absolute; top: 16px; right: 18px;
+                            background: rgba(255,255,255,0.07); border: none;
+                            color: rgba(255,255,255,0.5); cursor: pointer;
+                            width: 32px; height: 32px; border-radius: 50%;
+                            font-size: 14px; display: flex; align-items: center; justify-content: center;
+                            transition: background 0.15s;
+                        }
+                        .exec-modal-close:hover { background: rgba(255,255,255,0.15); color:#fff; }
+                        .exec-modal-header {
+                            display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;
+                        }
+                        .exec-modal-icon {
+                            width: 52px; height: 52px; border-radius: 13px; flex-shrink: 0;
+                            display: flex; align-items: center; justify-content: center; font-size: 22px;
+                        }
+                        .exec-modal-titles { flex: 1; }
+                        .exec-modal-eyebrow {
+                            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+                            text-transform: uppercase; color: #64b5f6; margin-bottom: 4px;
+                        }
+                        .exec-modal-title {
+                            font-size: 1.22rem; font-weight: 700;
+                            color: #fff; line-height: 1.25; margin: 0;
+                        }
+                        .exec-modal-body {
+                            font-size: 0.88rem; color: rgba(255,255,255,0.72);
+                            line-height: 1.7; margin-bottom: 22px;
+                        }
+                        .exec-modal-body p { margin-bottom: 12px; }
+                        .exec-modal-body strong { color: #90caf9; font-weight: 600; }
+                        .exec-modal-divider {
+                            border: none; border-top: 1px solid rgba(255,255,255,0.08);
+                            margin: 20px 0;
+                        }
+                        .exec-metrics {
+                            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+                        }
+                        .exec-metric {
+                            background: rgba(255,255,255,0.04);
+                            border: 1px solid rgba(255,255,255,0.09);
+                            border-radius: 10px; padding: 12px 10px; text-align: center;
+                        }
+                        .exec-metric-val {
+                            font-size: 1.35rem; font-weight: 800;
+                            background: linear-gradient(90deg,#64b5f6,#b388ff);
+                            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                            line-height: 1.1; margin-bottom: 4px;
+                        }
+                        .exec-metric-lbl {
+                            font-size: 0.66rem; color: rgba(255,255,255,0.45);
+                            text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3;
+                        }
+                        .exec-tags {
+                            display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px;
+                        }
+                        .exec-tag {
+                            font-size: 0.67rem; font-weight: 600;
+                            letter-spacing: 0.04em; text-transform: uppercase;
+                            padding: 3px 10px; border-radius: 20px;
+                            background: rgba(100,180,255,0.1);
+                            border: 1px solid rgba(100,180,255,0.2);
+                            color: #90caf9;
+                        }
+                        @media(max-width:480px){
+                            .exec-grid { grid-template-columns: 1fr; }
+                            .exec-modal { padding: 24px 20px 20px; }
+                            .exec-metrics { grid-template-columns: 1fr 1fr; }
+                        }
+                    </style>
+
+                    <div class="exec-grid">
+
+                        <!-- Card 1: Cloud Architecture -->
+                        <div class="exec-card" onclick="openExecModal('cloud')">
+                            <div class="exec-card-icon"><i class="fas fa-cloud"></i></div>
+                            <h4>Cloud Architecture</h4>
+                            <p class="exec-card-tagline">Multi-cloud landing zones &amp; CAF-aligned governance</p>
+                            <p class="exec-card-cta"><i class="fas fa-expand-alt"></i> View achievement</p>
+                            <div class="exec-tooltip">
+                                <div class="exec-tooltip-label">Signature Achievement</div>
+                                Architected a GCP Cloud Landing Zone for a global logistics firm — zero-trust networking, org-policy guardrails, and Terraform-automated provisioning across 6 BUs in under 90 days.
+                            </div>
+                        </div>
+
+                        <!-- Card 2: AI & Machine Learning -->
+                        <div class="exec-card" onclick="openExecModal('ai')">
+                            <div class="exec-card-icon"><i class="fas fa-brain"></i></div>
+                            <h4>AI &amp; Machine Learning</h4>
+                            <p class="exec-card-tagline">Agentic AI, RAG pipelines &amp; document intelligence</p>
+                            <p class="exec-card-cta"><i class="fas fa-expand-alt"></i> View achievement</p>
+                            <div class="exec-tooltip">
+                                <div class="exec-tooltip-label">Signature Achievement</div>
+                                Designed a multi-agent LLM orchestration platform (DoKrunch) extracting structured data from unstructured AP invoices — 94 % field-level accuracy at enterprise scale.
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Digital Strategy -->
+                        <div class="exec-card" onclick="openExecModal('strategy')">
+                            <div class="exec-card-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>Digital Strategy</h4>
+                            <p class="exec-card-tagline">ERP modernisation, AP automation &amp; FinTech transformation</p>
+                            <p class="exec-card-cta"><i class="fas fa-expand-alt"></i> View achievement</p>
+                            <div class="exec-tooltip">
+                                <div class="exec-tooltip-label">Signature Achievement</div>
+                                Delivered a $120 M AP transformation roadmap bridging Oracle ERP and SAP S/4HANA — reducing invoice cycle time by 68 % and eliminating manual touchpoints across 40 + supplier portals.
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Team Leadership -->
+                        <div class="exec-card" onclick="openExecModal('leadership')">
+                            <div class="exec-card-icon"><i class="fas fa-users"></i></div>
+                            <h4>Team Leadership</h4>
+                            <p class="exec-card-tagline">Org design, OKR cadence &amp; high-velocity delivery culture</p>
+                            <p class="exec-card-cta"><i class="fas fa-expand-alt"></i> View achievement</p>
+                            <div class="exec-tooltip">
+                                <div class="exec-tooltip-label">Signature Achievement</div>
+                                Built and scaled a 120-person distributed engineering org across 4 time-zones — cutting time-to-market from 14 weeks to 3 weeks through squad-based delivery and ruthless automation.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══ Achievement Modal ═══ -->
+                    <div class="exec-modal-overlay" id="execModalOverlay" onclick="closeExecModal(event)">
+                        <div class="exec-modal" id="execModal"></div>
+                    </div>
+
+                    <script>
+                    const EXEC_DATA = {
+                        cloud: {
+                            eyebrow: 'Cloud Architecture & Infrastructure',
+                            title: 'Enterprise Cloud Landing Zone Design &amp; Modernisation',
+                            icon: 'fas fa-cloud',
+                            iconBg: 'linear-gradient(135deg,#1a73e8,#0d47a1)',
+                            iconColor: '#7ec8ff',
+                            body: `
+                                <p>Led the end-to-end architecture and delivery of a <strong>GCP Cloud Landing Zone</strong> for a global logistics enterprise — encompassing a <strong>Cloud Adoption Framework (CAF) readiness assessment</strong>, workload classification, and a three-horizon migration roadmap spanning 200 + applications.</p>
+                                <p>Designed a <strong>hub-and-spoke VPC topology</strong> with Shared VPC, Private Google Access, and Cloud Armor WAF policies. Enforced org-policy guardrails and IAM boundaries across six business units using Terraform modules and Cloud Build CI/CD pipelines — achieving <strong>Day-0 compliance</strong> on NIST 800-53 and SOC 2 Type II controls from first provisioning.</p>
+                                <p>Championed a <strong>FinOps discipline</strong> using Recommender API + custom budget alerting that cut untagged spend waste by 41 % within the first quarter post-migration.</p>`,
+                            tags: ['GCP Landing Zone','Cloud CAF Assessment','Terraform IaC','FinOps','Zero-Trust Networking','NIST 800-53','SOC 2','Multi-Cloud'],
+                            metrics: [
+                                { val: '200+', lbl: 'Apps Migrated' },
+                                { val: '41%', lbl: 'Cloud Cost Saved' },
+                                { val: '6', lbl: 'BUs Onboarded' },
+                            ]
+                        },
+                        ai: {
+                            eyebrow: 'Artificial Intelligence & Machine Learning',
+                            title: 'Agentic AI Platform &amp; Document Intelligence at Scale',
+                            icon: 'fas fa-brain',
+                            iconBg: 'linear-gradient(135deg,#7b2ff7,#4a00b4)',
+                            iconColor: '#d4aaff',
+                            body: `
+                                <p>Architected <strong>DoKrunch</strong> — an enterprise AP Intelligence platform — on an <strong>agentic multi-LLM orchestration layer</strong> using Claude, GPT-4o, and fine-tuned domain models. The platform applies <strong>Retrieval-Augmented Generation (RAG)</strong> over a vector store of historical invoices to achieve deterministic field extraction from unstructured PDFs, EDI documents, and scanned images.</p>
+                                <p>Designed the <strong>Azure Document Intelligence + custom NER pipeline</strong> for demurrage invoices, shipping manifests, and AP vouchers — integrating seamlessly with Oracle ERP and SAP S/4HANA via an <strong>ERP Bridge reconciliation layer</strong> that auto-matches POs, GRNs, and vendor statements with 94 % straight-through accuracy.</p>
+                                <p>Implemented <strong>human-in-the-loop confidence scoring</strong>, audit trails, and GDPR-aligned PII redaction — enabling enterprise-grade deployment in highly regulated sectors.</p>`,
+                            tags: ['Agentic AI','RAG Pipelines','LLM Orchestration','Azure Document Intelligence','NER','Vector Stores','GPT-4o','Claude API'],
+                            metrics: [
+                                { val: '94%', lbl: 'Extraction Accuracy' },
+                                { val: '12+', lbl: 'Doc Types Handled' },
+                                { val: '80%', lbl: 'Manual Review Reduced' },
+                            ]
+                        },
+                        strategy: {
+                            eyebrow: 'Digital Strategy & Enterprise Transformation',
+                            title: 'AP Automation &amp; ERP Modernisation at $120 M Scale',
+                            icon: 'fas fa-chart-line',
+                            iconBg: 'linear-gradient(135deg,#00897b,#004d40)',
+                            iconColor: '#80cbc4',
+                            body: `
+                                <p>Defined and steered a <strong>$120 M digital transformation roadmap</strong> for a Fortune 500 manufacturer — replacing a fragmented, paper-based AP ecosystem with an end-to-end <strong>intelligent automation stack</strong> spanning Procure-to-Pay (P2P), vendor self-service portals, and real-time cash-flow dashboards.</p>
+                                <p>Orchestrated a <strong>dual-ERP reconciliation bridge</strong> between Oracle Cloud Financials and SAP S/4HANA — resolving GL coding discrepancies, duplicate payment risks, and audit exceptions across 40 + supplier integrations using <strong>event-driven microservices</strong> on Azure Service Bus and Kubernetes.</p>
+                                <p>Delivered a <strong>strategic FinTech integration</strong> layer incorporating dynamic discounting, early-pay programs, and embedded analytics — directly impacting working capital by $18 M annually.</p>`,
+                            tags: ['P2P Automation','Oracle Cloud ERP','SAP S/4HANA','Microservices','Azure Service Bus','FinTech Integration','Working Capital','Kubernetes'],
+                            metrics: [
+                                { val: '68%', lbl: 'Invoice Cycle Reduction' },
+                                { val: '40+', lbl: 'Supplier Portals Integrated' },
+                                { val: '$18M', lbl: 'Working Capital Impact' },
+                            ]
+                        },
+                        leadership: {
+                            eyebrow: 'Executive Leadership & Org Design',
+                            title: 'Building High-Velocity Engineering Organisations',
+                            icon: 'fas fa-users',
+                            iconBg: 'linear-gradient(135deg,#e65100,#bf360c)',
+                            iconColor: '#ffcc80',
+                            body: `
+                                <p>Scaled a <strong>120-person distributed engineering organisation</strong> across the US, India, and Eastern Europe — transitioning from a waterfall project model to a <strong>squad-based, product-led delivery culture</strong> anchored by OKRs, platform engineering principles, and ruthless automation of toil.</p>
+                                <p>Instituted a <strong>developer experience (DevEx) programme</strong> — internal developer portal (Backstage), golden-path templates, and automated onboarding pipelines — that reduced new-engineer time-to-first-commit from 3 weeks to 2 days and eliminated 60 % of recurring platform support tickets.</p>
+                                <p>Drove a <strong>40-point NPS improvement</strong> in engineering satisfaction scores over 18 months while simultaneously compressing release cadence from quarterly to weekly — without adding headcount through intelligent resourcing, AI-assisted code review, and shift-left quality practices.</p>`,
+                            tags: ['Org Design','OKR Cadence','Platform Engineering','DevEx','Backstage','Squad Model','Distributed Teams','AI-Assisted SDLC'],
+                            metrics: [
+                                { val: '120', lbl: 'Engineers Led' },
+                                { val: '5×', lbl: 'Release Velocity Gain' },
+                                { val: '+40pt', lbl: 'Engineering NPS' },
+                            ]
+                        }
+                    };
+
+                    function openExecModal(key) {
+                        const d = EXEC_DATA[key];
+                        const modal = document.getElementById('execModal');
+                        modal.innerHTML = `
+                            <button class="exec-modal-close" onclick="document.getElementById('execModalOverlay').classList.remove('open')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="exec-modal-header">
+                                <div class="exec-modal-icon" style="background:${d.iconBg};color:${d.iconColor}">
+                                    <i class="${d.icon}"></i>
+                                </div>
+                                <div class="exec-modal-titles">
+                                    <div class="exec-modal-eyebrow">${d.eyebrow}</div>
+                                    <h3 class="exec-modal-title">${d.title}</h3>
+                                </div>
+                            </div>
+                            <div class="exec-modal-body">${d.body}</div>
+                            <hr class="exec-modal-divider">
+                            <div class="exec-metrics">
+                                ${d.metrics.map(m => `
+                                    <div class="exec-metric">
+                                        <div class="exec-metric-val">${m.val}</div>
+                                        <div class="exec-metric-lbl">${m.lbl}</div>
+                                    </div>`).join('')}
+                            </div>
+                            <div class="exec-tags">
+                                ${d.tags.map(t => `<span class="exec-tag">${t}</span>`).join('')}
+                            </div>`;
+                        document.getElementById('execModalOverlay').classList.add('open');
+                    }
+
+                    function closeExecModal(e) {
+                        if (e.target === document.getElementById('execModalOverlay'))
+                            document.getElementById('execModalOverlay').classList.remove('open');
+                    }
+
+                    document.addEventListener('keydown', e => {
+                        if (e.key === 'Escape') document.getElementById('execModalOverlay').classList.remove('open');
+                    });
+                    </script>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$500M+</div>
+                        <div class="stat-label">Value Created</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcasts & Media Section -->
+    <section id="podcasts" class="podcasts-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Media Presence & Speaking Engagements</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Sharing insights on technology leadership and digital transformation across premier platforms</p>
+            </div>
+            <div class="media-grid">
+                <div class="media-card featured">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/TEC-podcast.jpg?height=300&width=500" alt="Tech Leadership Podcast">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">FEATURED PODCAST</span>
+                        <h3>The Future of Enterprise AI</h3>
+                        <p>Deep dive into AI implementation strategies and organizational transformation</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 2024</span>
+                            <span><i class="fas fa-clock"></i> 45 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/AI-unleashed.jpg?height=200&width=350" alt="Tech Conference Keynote">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">KEYNOTE</span>
+                        <h3>Digital Transformation Summit 2024</h3>
+                        <p>Keynote on scaling technology organizations</p>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/uday-at-retrieveX.jpg?height=200&width=350" alt="Industry Interview">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">INTERVIEW</span>
+                        <h3>CTO Insights Series</h3>
+			Live "On-Air", the AI and RAG economy (RetrieveX)
+                        <p>Leadership strategies for tech executives</p>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/GCPpanel-uday.jpg?height=200&width=350" alt="Panel Discussion">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">PANEL</span>
+                        <h3>Innovation Leadership Panel</h3>
+			GCP Cloud Adoption in Enterprises (Panel)
+                        <p>Building high-performance engineering teams</p>
+                    </div>
+                </div>
+
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/aiOppinERP.jpg?height=200&width=350" alt="The $30 trillion economy?">
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">Blog</span>
+                        <h3>Economic Significance of ERP Systems</h3>
+			The $30 Trillion Economy, on "Life Support"
+                        <p>Reimagining ERP with AI: From Legacy Burden to Growth Engine</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Thought Leadership Section -->
+    <!-- ══════════════════════════════════════════════════════
+         ARTICLE POPUP SYSTEM
+    ══════════════════════════════════════════════════════ -->
+    <style>
+        /* ── Article modal overlay ── */
+        #art-overlay {
+            display: none;
+            position: fixed; inset: 0; z-index: 9600;
+            background: rgba(5, 8, 20, 0.80);
+            backdrop-filter: blur(6px);
+            align-items: center; justify-content: center;
+            padding: 24px;
+        }
+        #art-overlay.open { display: flex; }
+
+        #art-modal {
+            width: 80vw; max-width: 900px;
+            height: 82vh;
+            background: var(--bg-surface, #0d1528);
+            border: 1px solid var(--bg-card-border, rgba(100,180,255,0.18));
+            border-radius: 18px;
+            display: flex; flex-direction: column;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+            overflow: hidden;
+            animation: artIn 0.3s cubic-bezier(.34,1.4,.64,1);
+        }
+        @keyframes artIn {
+            from { opacity:0; transform:scale(0.94) translateY(24px); }
+            to   { opacity:1; transform:scale(1)    translateY(0); }
+        }
+
+        /* Header bar */
+        #art-modal-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 22px;
+            border-bottom: 1px solid var(--bg-card-border, rgba(255,255,255,0.08));
+            background: var(--bg-surface, #0d1528);
+            flex-shrink: 0; gap: 12px;
+        }
+        #art-modal-label {
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em;
+            text-transform: uppercase; color: var(--accent, #64b5f6);
+        }
+        #art-modal-title {
+            flex: 1; font-size: 0.88rem; font-weight: 600;
+            color: var(--text-primary, #e8eaf6);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .art-header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+        .art-header-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.72rem; font-weight: 600; padding: 6px 14px;
+            border-radius: 999px; cursor: pointer; border: none;
+            transition: all 0.15s;
+        }
+        .art-open-ext {
+            background: var(--tag-bg, rgba(100,180,255,0.1));
+            color: var(--accent, #64b5f6);
+            border: 1px solid var(--tag-border, rgba(100,180,255,0.25));
+        }
+        .art-open-ext:hover { background: var(--accent, #64b5f6); color: #fff; }
+        .art-close-btn {
+            width: 30px; height: 30px; border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.5);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .art-close-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
+
+        /* Notice bar for external articles */
+        #art-notice {
+            background: rgba(245,158,11,0.10);
+            border-bottom: 1px solid rgba(245,158,11,0.18);
+            padding: 9px 22px;
+            font-size: 0.74rem; color: rgba(245,158,11,0.9);
+            display: flex; align-items: center; gap: 8px;
+            flex-shrink: 0;
+        }
+        #art-notice.hidden { display: none; }
+
+        /* Iframe / inline content area */
+        #art-frame {
+            flex: 1; width: 100%; border: none;
+            background: #fff;
+        }
+        /* Inline article (card 5) */
+        #art-inline {
+            flex: 1; overflow-y: auto; padding: 36px 48px 48px;
+            background: var(--bg-surface, #0d1528);
+            color: var(--text-primary, #e8eaf6);
+        }
+        #art-inline.hidden { display: none; }
+        #art-frame.hidden  { display: none; }
+
+        /* Inline article typography */
+        .art-doc-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--bg-card-border, rgba(255,255,255,0.08)); }
+        .art-doc-kicker { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent, #64b5f6); margin-bottom: 8px; }
+        .art-doc-title  { font-size: 1.6rem; font-weight: 800; line-height: 1.25; color: var(--text-primary, #e8eaf6); margin: 0 0 10px; }
+        .art-doc-byline { font-size: 0.8rem; color: var(--text-muted, rgba(255,255,255,0.45)); }
+        .art-doc-img    { width: 100%; max-height: 280px; object-fit: cover; border-radius: 12px; margin-bottom: 28px; }
+        .art-doc-body   { font-size: 0.9rem; line-height: 1.8; color: var(--text-secondary, rgba(232,234,246,0.72)); }
+        .art-doc-body h2 { font-size: 1.05rem; font-weight: 700; color: var(--text-primary, #e8eaf6); margin: 28px 0 10px; }
+        .art-doc-body p  { margin-bottom: 16px; }
+        .art-doc-body ul { margin: 0 0 16px 20px; }
+        .art-doc-body ul li { margin-bottom: 8px; }
+        .art-doc-body strong { color: var(--accent, #64b5f6); font-weight: 600; }
+        .art-doc-divider { border: none; border-top: 1px solid var(--bg-card-border, rgba(255,255,255,0.08)); margin: 24px 0; }
+        .art-doc-disclaimer {
+            background: var(--bg-card, rgba(255,255,255,0.04));
+            border: 1px solid var(--bg-card-border, rgba(255,255,255,0.09));
+            border-radius: 10px; padding: 16px 20px;
+            font-size: 0.76rem; color: var(--text-muted, rgba(255,255,255,0.4)); line-height: 1.6;
+        }
+        .art-doc-disclaimer strong { color: var(--accent-gold, #f59e0b); }
+        .art-doc-copyright { font-size: 0.7rem; color: var(--text-muted, rgba(255,255,255,0.3)); margin-top: 28px; }
+
+        /* Light theme overrides for inline article */
+        [data-theme="light"] #art-modal    { background: #fff; border-color: #e2e8f0; }
+        [data-theme="light"] #art-modal-header { background: #f8fafc; border-color: #e2e8f0; }
+        [data-theme="light"] #art-inline   { background: #fff; color: #0f172a; }
+        [data-theme="light"] .art-doc-title { color: #0f172a; }
+        [data-theme="light"] .art-doc-byline { color: #64748b; }
+        [data-theme="light"] .art-doc-body  { color: #334155; }
+        [data-theme="light"] .art-doc-body h2 { color: #0f172a; }
+        [data-theme="light"] .art-doc-body strong { color: #1a56c4; }
+        [data-theme="light"] .art-close-btn { background: #f1f5f9; border-color: #e2e8f0; color: #475569; }
+        [data-theme="light"] .art-doc-disclaimer { background: #f8fafc; border-color: #e2e8f0; color: #64748b; }
+        [data-theme="light"] .art-doc-copyright  { color: #94a3b8; }
+
+        /* Gen-Z overrides */
+        [data-theme="genz"] #art-modal { border-color: rgba(168,85,247,0.25); box-shadow: 0 32px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(168,85,247,0.15); }
+        [data-theme="genz"] .art-doc-body strong { color: #a855f7; }
+
+        @media (max-width: 768px) {
+            #art-modal { width: 95vw; height: 90vh; }
+            #art-inline { padding: 24px 20px 32px; }
+            .art-doc-title { font-size: 1.2rem; }
+        }
+    </style>
+
+    <!-- Article Modal -->
+    <div id="art-overlay" role="dialog" aria-modal="true" aria-label="Article viewer">
+        <div id="art-modal">
+            <div id="art-modal-header">
+                <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;">
+                    <span id="art-modal-label">Thought Leadership</span>
+                    <span id="art-modal-title"></span>
+                </div>
+                <div class="art-header-actions">
+                    <button class="art-header-btn art-open-ext" id="art-ext-btn" onclick="artOpenExternal()" aria-label="Open article in new tab">
+                        <i class="fas fa-external-link-alt"></i> Open in LinkedIn
+                    </button>
+                    <button class="art-close-btn" onclick="artClose()" aria-label="Close article viewer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="art-notice">
+                <i class="fas fa-info-circle"></i>
+                This article opens within this page. Use "Open in LinkedIn" to view the full interactive version, or close to return to the portfolio.
+            </div>
+            <iframe id="art-frame" title="Article content" sandbox="allow-same-origin allow-scripts" class="hidden"></iframe>
+            <div id="art-inline" class="hidden"></div>
+        </div>
+    </div>
+
+    <section id="thought-leadership" class="thought-leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Thought Leadership</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Insights and perspectives on technology trends, leadership, and digital innovation</p>
+            </div>
+            <div class="leadership-nav">
+                <button class="nav-btn active" data-category="all">All Insights</button>
+                <button class="nav-btn" data-category="ai">AI & ML</button>
+                <button class="nav-btn" data-category="leadership">Leadership</button>
+                <button class="nav-btn" data-category="strategy">Strategy</button>
+                <button class="nav-btn" data-category="innovation">Innovation</button>
+            </div>
+            <div class="insights-grid">
+
+                <!-- Card 1 -->
+                <article class="insight-card" data-category="ai">
+                    <div class="insight-image">
+                        <img src="assets/images/aiadoption.jpg" alt="The Strategic Imperative of AI Adoption">
+                    </div>
+                    <div class="insight-content">
+                        <span class="insight-category">AI &amp; MACHINE LEARNING</span>
+                        <h3>The Strategic Imperative of AI Adoption</h3>
+                        <p>How organizations can successfully navigate the complexities of AI implementation while maximizing ROI and minimizing risk.</p>
+                        <div class="insight-meta">
+                            <span class="read-time">8 min read</span>
+                            <span class="publish-date">Dec 15, 2024</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="artOpen(event,'https://www.linkedin.com/pulse/ai-agents-powerhouse-driving-next-generation-uday-ayyagari-jtukc/?trackingId=dUHPev4wSwWdtbtdlqYHqg%3D%3D','The Strategic Imperative of AI Adoption','ext')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="insight-card" data-category="leadership">
+                    <div class="insight-image">
+                        <img src="assets/images/bldgteams.jpg" alt="Building Resilient Technology Teams">
+                    </div>
+                    <div class="insight-content">
+                        <span class="insight-category">LEADERSHIP</span>
+                        <h3>Building Resilient Technology Teams</h3>
+                        <p>Essential strategies for developing high-performing engineering teams that can adapt and thrive in rapidly changing environments.</p>
+                        <div class="insight-meta">
+                            <span class="read-time">6 min read</span>
+                            <span class="publish-date">Dec 10, 2024</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="artOpen(event,'https://www.linkedin.com/pulse/rise-ai-isnt-threat-its-wake-up-call-uday-ayyagari-ct42c/','Building Resilient Technology Teams','ext')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="insight-card" data-category="strategy">
+                    <div class="insight-image">
+                        <img src="assets/images/coudprinciples.jpg" alt="Cloud-First Architecture Principles">
+                    </div>
+                    <div class="insight-content">
+                        <span class="insight-category">DIGITAL STRATEGY</span>
+                        <h3>Cloud-First Architecture Principles</h3>
+                        <p>A comprehensive guide to designing scalable, secure, and cost-effective cloud architectures for enterprise applications.</p>
+                        <div class="insight-meta">
+                            <span class="read-time">12 min read</span>
+                            <span class="publish-date">Dec 5, 2024</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="artOpen(event,'https://www.linkedin.com/pulse/iot-enabled-machine-learning-based-predictive-uday-ayyagari/?trackingId=dUHPev4wSwWdtbtdlqYHqg%3D%3D','Cloud-First Architecture Principles','ext')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="insight-card" data-category="innovation">
+                    <div class="insight-image">
+                        <img src="assets/images/logisticai.jpg" alt="Fostering Innovation in Enterprise Environments">
+                    </div>
+                    <div class="insight-content">
+                        <span class="insight-category">INNOVATION</span>
+                        <h3>Fostering Innovation in Enterprise Environments</h3>
+                        <p>How large organizations can maintain startup agility while leveraging enterprise resources to drive breakthrough innovation.</p>
+                        <div class="insight-meta">
+                            <span class="read-time">10 min read</span>
+                            <span class="publish-date">Nov 28, 2024</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="artOpen(event,'https://www.linkedin.com/pulse/designing-multi-agent-ai-system-logistics-automation-guide-ayyagari-df3lc/?trackingId=dUHPev4wSwWdtbtdlqYHqg%3D%3D','Fostering Innovation in Enterprise Environments','ext')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Card 5: DoKrunch / Aurus Insights -->
+                <article class="insight-card" data-category="ai">
+                    <div class="insight-image">
+                        <img src="assets/images/singlepane.jpg" alt="DoKrunch: From Fragmented Systems to a Single Pane of Glass">
+                    </div>
+                    <div class="insight-content">
+                        <span class="insight-category">AURUS INSIGHTS · AI &amp; DOCUMENT INTELLIGENCE</span>
+                        <h3>DoKrunch: From Fragmented Systems to a Single Pane of Glass</h3>
+                        <p>How AI-driven document intelligence is helping finance and operations teams unify disconnected back-office data — from PDFs and fragmented systems to a single operational view.</p>
+                        <div class="insight-meta">
+                            <span class="read-time">7 min read</span>
+                            <span class="publish-date">Dec 2024 · aurus.ai</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="artOpen(event,'','DoKrunch: From Fragmented Systems to a Single Pane of Glass','inline')">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+    /* ══ Article Popup Engine ══ */
+    let _artCurrentUrl = '';
+
+    function artOpen(e, url, title, mode) {
+        e.preventDefault();
+        _artCurrentUrl = url;
+        document.getElementById('art-modal-title').textContent = title;
+
+        const frame   = document.getElementById('art-frame');
+        const inline  = document.getElementById('art-inline');
+        const notice  = document.getElementById('art-notice');
+        const extBtn  = document.getElementById('art-ext-btn');
+
+        if (mode === 'inline') {
+            // Render the DoKrunch PDF article inline
+            frame.classList.add('hidden');
+            frame.src = '';
+            inline.classList.remove('hidden');
+            notice.classList.add('hidden');
+            extBtn.style.display = 'none';
+            inline.innerHTML = `
+                <div class="art-doc-header">
+                    <div class="art-doc-kicker">Aurus Insights &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; December 2024</div>
+                    <h1 class="art-doc-title">DoKrunch: From Fragmented Systems to a Single Pane of Glass</h1>
+                    <p class="art-doc-byline">By <strong>Uday Ayyagari</strong> &nbsp;|&nbsp; Founder &amp; CEO, aurus.ai &nbsp;|&nbsp; Legacy ERP Systems in the Age of Exponential Technologies</p>
+                </div>
+                <img class="art-doc-img" src="assets/images/singlepane.jpg" alt="DoKrunch: From Fragmented Systems to a Single Pane of Glass">
+                <div class="art-doc-body">
+                    <h2>Executive Summary</h2>
+                    <p>Finance and operations leaders today operate across two disconnected realities: structured systems that track transactions, and unstructured documents that explain them. In industries such as fintech and supply-chain finance, critical business context often arrives as PDFs, scanned forms, contracts, and emails — data that remains largely invisible to traditional operational workflows.</p>
+                    <p>This fragmentation drives slow reconciliations, reactive exception handling, and limited real-time visibility for leadership. The challenge is not a lack of systems, but the inability to reconcile unstructured documents alongside operational data in a consistent, scalable way.</p>
+                    <p>Artificial intelligence platforms are changing this dynamic. By making documents machine-readable, context-aware, and reconcilable, modern AI enables organizations to unify fragmented back-office data into a single operational view — without forcing wholesale system replacement.</p>
+                    <p>This article explores how AI-driven document intelligence is helping finance and operations teams move from disconnected PDFs and manual workflows to a single pane of glass, unlocking clarity, speed, and control in document-heavy environments.</p>
+                    <hr class="art-doc-divider">
+                    <h2>From PDFs and Fragmented Back-Office Systems to a Single Pane of Glass</h2>
+                    <p>Finance and operations teams today don't suffer from a lack of systems. They suffer from a lack of coherence.</p>
+                    <p>Across fintech, supply-chain finance, and mid-market operations, critical business data lives in two very different worlds. One is structured — databases, accounting systems, transaction logs. The other is unstructured — PDF invoices, scanned forms, contracts, shipping documents, emails, and attachments that quietly enter the organization every day. Both matter. Only one is truly visible.</p>
+                    <p>This disconnect is where inefficiency hides, reconciliation slows, and leadership decisions lose precision. Artificial intelligence platforms are now stepping in to close this gap — not by replacing existing systems, but by finally making documents computable and reconcilable alongside operational data.</p>
+                    <hr class="art-doc-divider">
+                    <h2>The Real Problem Isn't Volume — It's Fragmentation</h2>
+                    <p>Most finance leaders can trace their operational friction to a familiar pattern. Transactions are recorded in systems. Supporting evidence arrives separately. Documents are reviewed manually, summarized selectively, and often stored in disconnected folders or inboxes. When questions arise — disputes, exceptions, audits — teams scramble to piece together the story after the fact.</p>
+                    <p>This fragmentation creates downstream consequences:</p>
+                    <ul>
+                        <li>Reconciliation cycles stretch from hours into days</li>
+                        <li>Exceptions are handled reactively, not systematically</li>
+                        <li>Operational teams spend more time validating data than acting on it</li>
+                        <li>Leadership lacks a unified, real-time view of what's actually happening</li>
+                    </ul>
+                    <p>The issue is not the absence of technology. It's that documents — where context and nuance live — have remained largely invisible to computation.</p>
+                    <hr class="art-doc-divider">
+                    <h2>Why Documents Have Been Left Out of the Equation</h2>
+                    <p>Unstructured data has always been difficult to work with. PDFs, scans, and emails were designed for human consumption, not machines. Traditional systems could store them, but not understand them. As a result, documents became supporting artifacts rather than first-class operational inputs.</p>
+                    <p>In industries like supply-chain finance and fintech, this gap is especially painful. A single transaction may depend on multiple documents — contracts, invoices, bills of lading, compliance forms — each arriving through different channels, in different formats, at different times. When those documents aren't reconciled together, risk increases and efficiency drops.</p>
+                    <p>What's changed recently is not the volume of documents, but the ability of AI platforms to interpret them reliably.</p>
+                    <hr class="art-doc-divider">
+                    <h2>Artificial Intelligence Platforms, to the Rescue</h2>
+                    <p>Modern AI platforms are transforming how organizations deal with unstructured data. Using advances in <strong>document intelligence</strong>, semantic understanding, and validation logic, these platforms can now ingest documents, extract meaning, and align them with structured operational data in near real time.</p>
+                    <p>Instead of treating PDFs as static files, AI turns them into dynamic data sources. Key fields are identified, normalized, and cross-checked. Inconsistencies surface automatically. Context that once lived only in human heads becomes visible to systems.</p>
+                    <p>The result is not more automation for its own sake, but better operational clarity. Finance and operations teams gain the ability to reconcile what happened, why it happened, and where exceptions exist — without stitching together information manually.</p>
+                    <hr class="art-doc-divider">
+                    <h2>Toward a Single Pane of Glass for Operations and Finance</h2>
+                    <p>When structured and unstructured data converge, something fundamental changes. Teams no longer operate across disconnected tools and handoffs. They work from a unified view that reflects the full reality of the business.</p>
+                    <p>A <strong>"single pane of glass"</strong> doesn't mean one more dashboard. It means one coherent layer where transactions, documents, and validations come together. Leaders can see not just outcomes, but the underlying evidence. Operations teams can resolve issues faster because context is readily available. Finance teams spend less time reconciling and more time analyzing.</p>
+                    <p>This unified view becomes especially powerful in high-volume, document-heavy environments, where small inefficiencies compound quickly and manual processes don't scale.</p>
+                    <hr class="art-doc-divider">
+                    <h2>The Strategic Shift Leaders Are Making</h2>
+                    <p>Forward-looking CFOs and COOs are beginning to recognize that operational intelligence doesn't come from adding more systems. It comes from connecting what already exists — especially the data that has historically been ignored.</p>
+                    <p><strong>AI-driven document intelligence platforms</strong> are emerging as the connective tissue between fragmented back-office processes. They don't demand wholesale transformation. They augment reality. They surface what's already there and make it actionable.</p>
+                    <p>For organizations navigating growth, complexity, and increasing scrutiny, this shift is less about technology and more about control. Visibility improves. Reconciliation becomes continuous. Decisions are grounded in a complete picture, not partial snapshots.</p>
+                    <p>The path from PDFs and fragmented systems to a single pane of glass is no longer theoretical. It's becoming a practical, competitive advantage for teams willing to rethink how operational data is understood.</p>
+                    <p>And for many, that rethink starts with finally bringing documents into the center of the conversation.</p>
+                    <hr class="art-doc-divider">
+                    <div class="art-doc-disclaimer">
+                        <strong>Disclaimer:</strong> This document is provided for informational and illustrative purposes only. Any scenarios, metrics, or outcomes described are forward-looking examples and do not represent guarantees, commitments, or deployed customer results. Actual results may vary based on data quality, systems, workflows, and organizational readiness.<br><br>
+                        <strong>Privacy &amp; Data Responsibility:</strong> Aurus.ai is committed to protecting data privacy and confidentiality. We do not access, retain, or process customer data without explicit authorization and contractual agreement. For more information, visit: <a href="https://aurus.ai/privacy" target="_blank" style="color:var(--accent,#64b5f6)">aurus.ai/privacy</a>
+                    </div>
+                    <p class="art-doc-copyright">© Copyright &amp; Ownership © 2026 Aurus.ai, Inc. All rights reserved. aurus.ai™, DoKrunch™, and associated logos are trademarks of aurus.ai, Inc.</p>
+                </div>`;
+        } else {
+            // External LinkedIn article — open in a sized popup window
+            // This keeps the calling page fully intact and in context
+            inline.classList.add('hidden');
+            inline.innerHTML = '';
+
+            const popW = Math.round(window.screen.width  * 0.80);
+            const popH = Math.round(window.screen.height * 0.80);
+            const popL = Math.round((window.screen.width  - popW) / 2);
+            const popT = Math.round((window.screen.height - popH) / 2);
+
+            const popup = window.open(
+                url,
+                'aurus_article_' + Date.now(),
+                `width=${popW},height=${popH},left=${popL},top=${popT},` +
+                `toolbar=no,menubar=no,location=no,status=no,scrollbars=yes,resizable=yes`
+            );
+
+            // If browser blocked the popup, fall back to showing a modal notice
+            if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+                // Popup blocked — show fallback iframe attempt
+                frame.classList.remove('hidden');
+                frame.src = url;
+                notice.classList.remove('hidden');
+                extBtn.style.display = '';
+            } else {
+                // Popup opened successfully — no need for our modal
+                return; // Don't open our overlay
+            }
+        }
+
+        document.getElementById('art-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function artClose() {
+        document.getElementById('art-overlay').classList.remove('open');
+        document.getElementById('art-frame').src = '';
+        document.getElementById('art-frame').classList.add('hidden');
+        document.getElementById('art-inline').classList.add('hidden');
+        document.getElementById('art-inline').innerHTML = '';
+        document.getElementById('art-notice').classList.remove('hidden');
+        document.getElementById('art-ext-btn').style.display = '';
+        document.body.style.overflow = '';
+    }
+
+    function artOpenExternal() {
+        if (_artCurrentUrl) window.open(_artCurrentUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    // Close on overlay click or Escape
+    document.getElementById('art-overlay').addEventListener('click', function(e) {
+        if (e.target === this) artClose();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('art-overlay').classList.contains('open')) artClose();
+    });
+    </script>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Transformative engagements that moved markets, modernised enterprises, and set industry precedent</p>
+            </div>
+
+            <style>
+                /* ── Nav items ── */
+                .pf-sidebar { display:flex !important; flex-direction:column !important; gap:8px !important; }
+                .pf-nav-item {
+                    display:flex !important; align-items:flex-start !important; gap:16px !important; padding:16px 18px !important;
+                    cursor:pointer !important; border-radius:12px !important;
+                    border:1px solid rgba(255,255,255,0.07) !important;
+                    background:rgba(255,255,255,0.03) !important;
+                    transition:all 0.2s ease !important;
+                    user-select:none;
+                }
+                .pf-nav-item:hover { background:rgba(100,180,255,0.06) !important; border-color:rgba(100,180,255,0.2) !important; }
+                .pf-nav-item.pf-active { background:rgba(100,180,255,0.1) !important; border-color:#64b5f6 !important; }
+                .pf-num { font-size:1.6rem !important; font-weight:800 !important; color:rgba(255,255,255,0.15) !important; line-height:1 !important; min-width:30px !important; transition:color 0.2s !important; }
+                .pf-nav-item.pf-active .pf-num { color:#64b5f6 !important; }
+                .pf-txt h4 { font-size:0.85rem !important; font-weight:700 !important; color:#e8eaf6 !important; margin:0 0 3px !important; }
+                .pf-txt p  { font-size:0.72rem !important; color:rgba(255,255,255,0.4) !important; margin:0 !important; }
+
+                /* ── Right panel: summary card ── */
+                .pf-panel { display:none !important; }
+                .pf-panel.pf-active { display:flex !important; flex-direction:column !important; gap:0 !important; }
+                .pf-details { padding:0; }
+                .pf-type {
+                    display:inline-block; font-size:0.65rem; font-weight:700;
+                    letter-spacing:0.1em; text-transform:uppercase; color:#64b5f6;
+                    margin-bottom:10px;
+                }
+                .pf-details h3 { font-size:1.45rem; font-weight:800; color:#fff; margin:0 0 14px; line-height:1.25; }
+                .pf-desc { font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.7; margin-bottom:22px; }
+
+                /* Metrics row — gold numbers like the screenshot */
+                .pf-metrics {
+                    display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px;
+                }
+                .pf-metric {
+                    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+                    border-radius:12px; padding:16px 12px; text-align:center;
+                }
+                .pf-mval {
+                    font-size:2rem; font-weight:800; color:#f59e0b;
+                    line-height:1.1; margin-bottom:6px;
+                }
+                .pf-mlbl { font-size:0.72rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.05em; }
+
+                /* Tech tags — blue pills */
+                .pf-techs { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:24px; }
+                .pf-tech {
+                    font-size:0.7rem; font-weight:600; padding:4px 12px; border-radius:20px;
+                    background:rgba(100,180,255,0.12); border:1px solid rgba(100,180,255,0.28);
+                    color:#90caf9; letter-spacing:0.03em;
+                }
+
+                /* CTA button — gold pill like screenshot */
+                .pf-cta {
+                    display:inline-flex; align-items:center; gap:8px;
+                    background:linear-gradient(135deg,#f59e0b,#d97706);
+                    color:#111; font-weight:700; font-size:0.875rem;
+                    padding:11px 28px; border-radius:999px; border:none;
+                    cursor:pointer; transition:transform 0.15s, box-shadow 0.15s;
+                    box-shadow:0 6px 20px rgba(245,158,11,0.35);
+                }
+                .pf-cta:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(245,158,11,0.45); }
+                .pf-cta i { font-size:0.8rem; }
+
+                /* ── Slide-in Drawer ── */
+                #csDrawerOverlay {
+                    position:fixed; inset:0; background:rgba(5,10,20,0.75);
+                    backdrop-filter:blur(6px); z-index:8000;
+                    opacity:0; pointer-events:none; transition:opacity 0.3s ease;
+                }
+                #csDrawerOverlay.open { opacity:1; pointer-events:all; }
+                #csDrawer {
+                    position:fixed; top:0; right:0; height:100%;
+                    width:min(600px,95vw);
+                    background:linear-gradient(160deg,#0d1528 0%,#091020 100%);
+                    border-left:1px solid rgba(100,180,255,0.18);
+                    z-index:8001; overflow-y:auto;
+                    transform:translateX(100%); transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+                    padding:0;
+                }
+                #csDrawer.open { transform:translateX(0); }
+
+                .csd-header {
+                    position:sticky; top:0;
+                    background:rgba(13,21,40,0.97);
+                    border-bottom:1px solid rgba(255,255,255,0.07);
+                    padding:18px 28px; display:flex; align-items:center;
+                    justify-content:space-between; gap:12px; z-index:1;
+                    backdrop-filter:blur(8px);
+                }
+                .csd-eyebrow { font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#64b5f6; }
+                .csd-close {
+                    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.12);
+                    background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.5);
+                    display:flex; align-items:center; justify-content:center;
+                    cursor:pointer; font-size:14px; flex-shrink:0;
+                    transition:background 0.15s, color 0.15s;
+                }
+                .csd-close:hover { background:rgba(255,255,255,0.14); color:#fff; }
+                .csd-body { padding:28px 28px 40px; }
+                .csd-title { font-size:1.3rem; font-weight:800; color:#fff; line-height:1.3; margin:0 0 22px; }
+                .csd-text { font-size:0.875rem; color:rgba(255,255,255,0.72); line-height:1.78; }
+                .csd-text p { margin-bottom:16px; }
+                .csd-text strong { color:#90caf9; font-weight:600; }
+                .csd-text em { color:#ce93d8; font-style:normal; font-weight:600; }
+                .csd-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin:22px 0; }
+                .csd-metrics { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+                .csd-metric {
+                    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+                    border-radius:12px; padding:14px 16px;
+                }
+                .csd-metric-val {
+                    font-size:1.7rem; font-weight:800;
+                    background:linear-gradient(90deg,#f59e0b,#fb923c);
+                    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+                    line-height:1.1; margin-bottom:4px;
+                }
+                .csd-metric-lbl { font-size:0.7rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
+                .csd-metric-sub { font-size:0.67rem; color:rgba(255,255,255,0.3); line-height:1.3; }
+                .csd-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:22px; }
+                .csd-tag {
+                    font-size:0.65rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase;
+                    padding:3px 10px; border-radius:20px;
+                    background:rgba(100,180,255,0.08); border:1px solid rgba(100,180,255,0.2); color:#90caf9;
+                }
+                .csd-footnote {
+                    border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;
+                    font-size:0.68rem; color:rgba(255,255,255,0.28);
+                    font-style:italic; line-height:1.5;
+                    display:flex; align-items:flex-start; gap:8px;
+                }
+                .csd-footnote i { color:rgba(100,180,255,0.35); font-size:0.72rem; margin-top:2px; flex-shrink:0; }
+
+                /* ── Force two-column layout regardless of main.css ── */
+                .pf-wrap {
+                    display:flex !important;
+                    flex-direction:row !important;
+                    gap:32px !important;
+                    align-items:flex-start !important;
+                    width:100% !important;
+                }
+                .pf-sidebar {
+                    flex:0 0 300px !important;
+                    width:300px !important;
+                    min-width:0;
+                }
+                .pf-content {
+                    flex:1 1 0% !important;
+                    min-width:0 !important;
+                    background:rgba(255,255,255,0.03) !important;
+                    border:1px solid rgba(255,255,255,0.08) !important;
+                    border-radius:16px !important;
+                    padding:28px !important;
+                }
+                @media(max-width:900px){
+                    .pf-wrap { flex-direction:column !important; }
+                    .pf-sidebar { flex:none !important; width:100% !important; }
+                    .pf-metrics { grid-template-columns:1fr 1fr; }
+                    .pf-details h3 { font-size:1.1rem; }
+                    .csd-metrics { grid-template-columns:1fr; }
+                }
+            </style>
+
+            <div class="pf-wrap">
+                <!-- ── Left nav ── -->
+                <div class="pf-sidebar">
+                    <div class="pf-nav-item pf-active" onclick="pfSwitch('cs1',this)">
+                        <div class="pf-num">01</div>
+                        <div class="pf-txt">
+                            <h4>AP Automation at Enterprise Scale</h4>
+                            <p>Fortune 500 · OCR · RPA · Oracle EBS / SAP ECC</p>
+                        </div>
+                    </div>
+                    <div class="pf-nav-item" onclick="pfSwitch('cs2',this)">
+                        <div class="pf-num">02</div>
+                        <div class="pf-txt">
+                            <h4>AWS Cloud Migration — 200+ Apps</h4>
+                            <p>Landing Zone · 7R Framework · CCoE · FinOps</p>
+                        </div>
+                    </div>
+                    <div class="pf-nav-item" onclick="pfSwitch('cs3',this)">
+                        <div class="pf-num">03</div>
+                        <div class="pf-txt">
+                            <h4>Blockchain AR Monetisation</h4>
+                            <p>Silicon Valley FinTech · Ethereum · Hyperledger Fabric</p>
+                        </div>
+                    </div>
+                    <div class="pf-nav-item" onclick="pfSwitch('cs4',this)">
+                        <div class="pf-num">04</div>
+                        <div class="pf-txt">
+                            <h4>Global Engineering Scale-Up</h4>
+                            <p>120-Person Org · DORA · Platform Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Right content panels ── -->
+                <div class="pf-content">
+
+                    <!-- CS 1 -->
+                    <div class="pf-panel pf-active" id="cs1">
+                        <div class="pf-details">
+                            <span class="pf-type">AP AUTOMATION · PRE-2020</span>
+                            <h3>Intelligent AP Automation for a Fortune 500 Manufacturer</h3>
+                            <p class="pf-desc">Architected an end-to-end Accounts Payable automation platform processing 4 million invoices annually across 18 operating entities — eliminating manual keying through ABBYY FlexiCapture OCR, a UiPath RPA fleet, and a three-way PO/GRN matching engine integrated into Oracle EBS and SAP ECC.</p>
+                            <div class="pf-metrics">
+                                <div class="pf-metric"><div class="pf-mval">87%</div><div class="pf-mlbl">STP Rate</div></div>
+                                <div class="pf-metric"><div class="pf-mval">$19M</div><div class="pf-mlbl">Annual Impact</div></div>
+                                <div class="pf-metric"><div class="pf-mval">18</div><div class="pf-mlbl">Entities Automated</div></div>
+                            </div>
+                            <div class="pf-techs">
+                                <span class="pf-tech">ABBYY FlexiCapture</span>
+                                <span class="pf-tech">UiPath RPA</span>
+                                <span class="pf-tech">Oracle EBS</span>
+                                <span class="pf-tech">SAP ECC</span>
+                                <span class="pf-tech">EDI 810</span>
+                                <span class="pf-tech">SOX Compliance</span>
+                            </div>
+                            <button class="pf-cta" onclick="openDrawer('cs1')">
+                                <i class="fas fa-book-open"></i> View Full Case Study
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CS 2 -->
+                    <div class="pf-panel" id="cs2">
+                        <div class="pf-details">
+                            <span class="pf-type">CLOUD MIGRATION · PRE-2020</span>
+                            <h3>AWS Enterprise Cloud Migration: 200+ Applications</h3>
+                            <p class="pf-desc">Designed and governed the AWS migration of 217 applications across 14 portfolio companies using a proprietary Application Portfolio Scoring Model, 7R disposition framework, multi-account Landing Zone, and an embedded Cloud Centre of Excellence — delivering zero critical incidents across three migration waves.</p>
+                            <div class="pf-metrics">
+                                <div class="pf-metric"><div class="pf-mval">217</div><div class="pf-mlbl">Apps Migrated</div></div>
+                                <div class="pf-metric"><div class="pf-mval">38%</div><div class="pf-mlbl">Cost Reduction</div></div>
+                                <div class="pf-metric"><div class="pf-mval">0</div><div class="pf-mlbl">Critical Incidents</div></div>
+                            </div>
+                            <div class="pf-techs">
+                                <span class="pf-tech">AWS Control Tower</span>
+                                <span class="pf-tech">7R Framework</span>
+                                <span class="pf-tech">Transit Gateway</span>
+                                <span class="pf-tech">AWS Security Hub</span>
+                                <span class="pf-tech">FinOps</span>
+                                <span class="pf-tech">NIST 800-53</span>
+                            </div>
+                            <button class="pf-cta" onclick="openDrawer('cs2')">
+                                <i class="fas fa-book-open"></i> View Full Case Study
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CS 3 -->
+                    <div class="pf-panel" id="cs3">
+                        <div class="pf-details">
+                            <span class="pf-type">BLOCKCHAIN · FINTECH · 2017–2019</span>
+                            <h3>InvoiceFlow Exchange™ — Blockchain AR Monetisation Platform</h3>
+                            <p class="pf-desc">Served as Principal Architect of a groundbreaking Silicon Valley FinTech platform enabling SMEs to monetise receivables through a decentralised Invoice Liquidity Exchange — featuring Ethereum smart contracts, programmable digital wallets, a Reverse Dutch Auction engine, and one of the earliest Ethereum–Hyperledger Fabric cross-chain interoperability bridges in production trade finance.</p>
+                            <div class="pf-metrics">
+                                <div class="pf-metric"><div class="pf-mval">$480M</div><div class="pf-mlbl">Volume Transacted</div></div>
+                                <div class="pf-metric"><div class="pf-mval">62%</div><div class="pf-mlbl">DSO Reduction</div></div>
+                                <div class="pf-metric"><div class="pf-mval">1,200+</div><div class="pf-mlbl">SME Sellers</div></div>
+                            </div>
+                            <div class="pf-techs">
+                                <span class="pf-tech">Ethereum Smart Contracts</span>
+                                <span class="pf-tech">Hyperledger Fabric</span>
+                                <span class="pf-tech">Cross-Chain Bridge</span>
+                                <span class="pf-tech">Digital Wallets</span>
+                                <span class="pf-tech">Reverse Dutch Auction</span>
+                                <span class="pf-tech">KYC / AML</span>
+                            </div>
+                            <button class="pf-cta" onclick="openDrawer('cs3')">
+                                <i class="fas fa-book-open"></i> View Full Case Study
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CS 4 -->
+                    <div class="pf-panel" id="cs4">
+                        <div class="pf-details">
+                            <span class="pf-type">ENGINEERING LEADERSHIP · 2021–2023</span>
+                            <h3>Building a 120-Person High-Velocity Engineering Organisation</h3>
+                            <p class="pf-desc">Recruited as founding engineering executive for a Series C SaaS company to transform a 30-person contractor group into a 120-person DORA elite-performing organisation — delivering an Internal Developer Portal, squad-based delivery model, and a shift-left quality culture that compressed release cadence from quarterly to weekly.</p>
+                            <div class="pf-metrics">
+                                <div class="pf-metric"><div class="pf-mval">5×</div><div class="pf-mlbl">Release Velocity</div></div>
+                                <div class="pf-metric"><div class="pf-mval">+40pt</div><div class="pf-mlbl">Engineering NPS</div></div>
+                                <div class="pf-metric"><div class="pf-mval">120</div><div class="pf-mlbl">Engineers Led</div></div>
+                            </div>
+                            <div class="pf-techs">
+                                <span class="pf-tech">Backstage IDP</span>
+                                <span class="pf-tech">DORA Metrics</span>
+                                <span class="pf-tech">ArgoCD · GitOps</span>
+                                <span class="pf-tech">SAST / DAST</span>
+                                <span class="pf-tech">Squad Model</span>
+                                <span class="pf-tech">OKR Cadence</span>
+                            </div>
+                            <button class="pf-cta" onclick="openDrawer('cs4')">
+                                <i class="fas fa-book-open"></i> View Full Case Study
+                            </button>
+                        </div>
+                    </div>
+
+                </div><!-- /pf-content -->
+            </div><!-- /pf-wrap -->
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         CASE STUDY SLIDE-IN DRAWER
+    ════════════════════════════════════════════ -->
+    <div id="csDrawerOverlay" onclick="closeDrawer(event)">
+        <div id="csDrawer">
+            <div class="csd-header">
+                <span class="csd-eyebrow" id="csdEyebrow"></span>
+                <button class="csd-close" onclick="document.getElementById('csDrawerOverlay').classList.remove('open');document.getElementById('csDrawer').classList.remove('open')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="csd-body" id="csdBody"></div>
+        </div>
+    </div>
+
+    <script>
+    /* ── Case study nav ── */
+    function pfSwitch(id, el) {
+        document.querySelectorAll('.pf-panel').forEach(p => p.classList.remove('pf-active'));
+        document.querySelectorAll('.pf-nav-item').forEach(n => n.classList.remove('pf-active'));
+        document.getElementById(id).classList.add('pf-active');
+        el.classList.add('pf-active');
+    }
+
+    /* ── Drawer data ── */
+    const CS_FULL = {
+        cs1: {
+            eyebrow: 'AP Automation · Intelligent OCR · RPA · ERP Integration · 2018–2019',
+            title: 'End-to-End AP Automation for a Fortune 500 Manufacturer: From Paper-Bound to Straight-Through',
+            body: `<p>Engaged by a Fortune 500 discrete manufacturer processing over <strong>4 million invoices annually</strong> across 18 operating entities, each running on a patchwork of legacy ERP instances and manual keying workflows. The mandate was to architect and deliver a comprehensive <strong>Accounts Payable automation platform</strong> handling the full invoice lifecycle — ingestion, classification, extraction, validation, matching, and ERP posting — with minimal human intervention. The solution was built on an <strong>Intelligent OCR engine (ABBYY FlexiCapture)</strong> trained on millions of historical invoice images across vendor-specific templates, paired with a <em>rules-based extraction and classification framework</em> handling structured, semi-structured, and free-form invoice layouts across 14 document sub-types: PO-backed invoices, non-PO vouchers, credit memos, freight bills, utility statements, and intercompany charges.</p>
+            <p>At the automation layer, a <strong>UiPath RPA fleet</strong> orchestrated the touchless processing workflow — transferring validated invoice data into both <strong>Oracle EBS R12 and SAP ECC 6.0</strong>, executing three-way PO/GRN/invoice matching via configured tolerance rules, and routing exceptions to a structured workflow queue with SLA-tracked resolution paths. A <em>vendor master enrichment module</em> cross-referenced DUNS numbers, FEIN/tax IDs, and bank account details against a golden-source supplier registry using the IBM Sterling Supplier Portal — preventing duplicate vendor records and detecting fraudulent payment attempts at point of entry. The matching engine applied <strong>fuzzy-logic business rules</strong> across quantity and price variances within buyer-approved tolerance bands, clearing conforming invoices without human touch.</p>
+            <p>The programme also delivered a <strong>self-service supplier portal</strong> enabling electronic submission via EDI 810 transaction sets, Ariba cXML, PDF upload with OCR handoff, or structured web entry — eliminating paper and email channels entirely within 12 months. An <em>analytics and operational reporting layer</em> on <strong>MicroStrategy</strong> surfaced real-time AP dashboards tracking Days Payable Outstanding (DPO), exception aging by GL code and cost centre, early-pay discount capture rates, and duplicate payment risk scores — giving the CFO organisation granular transparency it had never previously had. <strong>SOX Section 302 and 906 audit trail compliance</strong> was engineered from Day 1 with role-based access controls (RBAC), immutable processing logs in an Oracle database audit vault, and automated Segregation of Duties (SoD) enforcement across every approval workflow step.</p>`,
+            metrics: [
+                { val:'87%', lbl:'Straight-Through Processing Rate', sub:'Up from 9% baseline; 4M+ invoices annually cleared without manual keying across 18 entities' },
+                { val:'$19M', lbl:'Annual Cost & Working Capital Impact', sub:'AP processing cost reduction, early-pay discount capture, and duplicate payment elimination' }
+            ],
+            tags:['ABBYY FlexiCapture','UiPath RPA','Oracle EBS R12','SAP ECC 6.0','IBM Sterling','EDI 810 · Ariba cXML','MicroStrategy','SOX 302/906','3-Way PO Matching','RBAC · SoD'],
+            footnote:'Client identity withheld under NDA. Metrics reflect post-implementation audit at 12-month mark. Engagement delivered 2018–2019.'
+        },
+        cs2: {
+            eyebrow: 'AWS · Cloud Landing Zone · Application Portfolio Modernisation · 2017–2018',
+            title: 'AWS Enterprise Cloud Migration: 217 Applications Across a Global PE-Backed Portfolio',
+            body: `<p>Commissioned by a global private equity-backed portfolio operator to architect and govern the <strong>AWS cloud migration of 217 business applications</strong> spanning 14 portfolio companies across North America, EMEA, and APAC. Initiated the programme with a rigorous <strong>Cloud Adoption Framework (CAF) Readiness Assessment</strong> across all six CAF perspectives — Business, People, Governance, Platform, Security, and Operations — and paired it with a proprietary <em>Application Portfolio Scoring Model (APSM)</em> rating each workload across 22 criteria: TCO profile, data sensitivity (PII, PCI, HIPAA), integration complexity, regulatory jurisdiction, architectural debt index, and strategic business criticality. The model produced a <strong>7R migration disposition</strong> for every application — Retire, Retain, Rehost, Replatform, Repurchase, Refactor, Re-architect — enabling data-driven wave sequencing that prioritised low-risk, high-value candidates to demonstrate early programme ROI.</p>
+            <p>Designed and provisioned a <strong>multi-account AWS Landing Zone</strong> using AWS Organizations and AWS Config Rules — establishing a <em>hierarchical OU structure</em> aligned to environment type (Production, Non-Prod, Sandbox), data classification tier (Restricted, Confidential, Internal), and geographic data residency requirements. Implemented <strong>Service Control Policies (SCPs)</strong> enforcing least-privilege boundaries, mandatory resource tagging with CostCenter/Environment/Owner tags, region lockdowns per data sovereignty rules, and automated Config remediation for policy drift. A centralised <em>hub-and-spoke network topology</em> used AWS Direct Connect for private circuits back to on-premises data centres, with per-subsidiary VPC peering and centralised egress through an inspection gateway running <strong>Palo Alto VM-Series NGFW</strong> — all under continuous posture monitoring via AWS Trusted Advisor, AWS Config, and third-party tooling against <strong>CIS AWS Foundations Benchmark v1.2 and NIST 800-53 Rev 4</strong>.</p>
+            <p>Programme execution was governed by a <strong>Cloud Centre of Excellence (CCoE)</strong> Uday stood up and led — embedding dedicated cloud engineers within each portfolio company's delivery team, enforcing architecture patterns through a curated <em>AWS Service Catalogue</em> of pre-approved, compliance-stamped solution templates, and running bi-weekly Architecture Review Boards (ARBs) to gate workload promotion. A FinOps discipline built on <strong>AWS Cost Explorer, Trusted Advisor, and Reserved Instance Optimiser</strong> drove continuous right-sizing post-migration, with automated anomaly detection alerting on spend deviations exceeding 15% of forecast. The programme completed all three waves on schedule with <strong>zero critical-severity production incidents</strong> during any cutover window.</p>`,
+            metrics: [
+                { val:'217', lbl:'Applications Successfully Migrated', sub:'Across 14 portfolio companies; 0 critical incidents during cutover windows; 3-wave delivery' },
+                { val:'38%', lbl:'Blended Infrastructure Cost Reduction', sub:'Achieved within 6 months post-migration via FinOps right-sizing and Reserved Instance optimisation' }
+            ],
+            tags:['AWS Organizations','Landing Zone','CAF Assessment','7R Disposition','APSM','SCPs · Config Rules','Direct Connect','Palo Alto NGFW','CCoE','FinOps','CIS Benchmark','NIST 800-53'],
+            footnote:'Client identity withheld under NDA. Application count reflects total in scope at programme initiation. Engagement delivered across 18-month programme window, 2017–2018.'
+        },
+        cs3: {
+            eyebrow: 'Blockchain · Smart Contracts · FinTech · Trade Finance · Silicon Valley · 2017–2019',
+            title: 'InvoiceFlow Exchange™ — Pioneering Blockchain-Powered AR Monetisation for a Silicon Valley FinTech',
+            body: `<p>Served as Principal Architect for a Silicon Valley FinTech startup pioneering one of the <strong>earliest production-grade blockchain applications in trade finance</strong> — a decentralised <em>Accounts Receivable Monetisation Platform</em> enabling SMEs and mid-market enterprises to unlock trapped liquidity from outstanding receivables without traditional factoring intermediaries or bank credit lines. Architected the platform's core marketplace: the <strong>Invoice Liquidity Exchange (ILX)</strong> — where sellers pooled validated receivables into risk-scored <em>Invoice Tranche Portfolios (ITPs)</em>, each carrying a dynamic credit grade derived from obligor payment-history analytics, buyer concentration ratios, and sector-level default probability models. ITPs were then offered to a vetted network of accredited institutional buyers — family offices, alternative lenders, and insurance-backed special purpose vehicles — through a proprietary <strong>Reverse Dutch Auction (RDA) bidding engine</strong>. Buyers submitted descending-price bids within a defined auction window; a real-time clearing algorithm matched ITPs to the optimal bid combination maximising seller net yield while enforcing buyer concentration limits and portfolio diversification constraints per the platform's risk governance framework.</p>
+            <p>The platform's immutable trust layer was built on <strong>Ethereum smart contracts</strong> deployed on the public mainnet — encoding the complete invoice lifecycle: origination attestation, validation checkpoint, auction settlement, fund disbursement through <em>programmable multi-currency digital wallets</em>, and repayment reconciliation against the on-chain asset record. Each ITP was tokenised as a <strong>non-fungible digital asset</strong> — predating the ERC-721 standard — with on-chain provenance allowing buyers to independently verify invoice authenticity, prior-lien status, and obligor credit history without relying on centralised custodians or paper-based documentation. For enterprise participants requiring permissioned ledger guarantees and transaction privacy, Uday architected a <strong>cross-chain interoperability bridge between the Ethereum public chain and Hyperledger Fabric</strong> — one of the earliest implementations of its kind in production — enabling consortium members to transact on a private Fabric channel while anchoring settlement finality to the Ethereum mainnet. This hybrid architecture preserved enterprise-grade data confidentiality while inheriting Ethereum's cryptographic immutability for audit and dispute resolution.</p>
+            <p>The <strong>digital wallet infrastructure</strong> supported multi-currency settlement across USD, EUR, and early stablecoin rails, with KYC/AML orchestration integrated via Jumio and Onfido identity verification APIs and OFAC/PEP screening through World-Check. A <em>Credit Intelligence Engine</em> — built on gradient-boosted tree models trained on payment velocity, Days Sales Outstanding (DSO) trends, buyer concentration risk, and sector default rates — produced dynamic ITP credit scores updating with every new data signal, enabling real-time yield pricing in the auction. The platform scaled to <strong>over $480M in invoice volume transacted</strong> within 18 months of launch, across a network of 1,200+ verified SME sellers and 85 institutional buyers — demonstrating that blockchain-native infrastructure could structurally disintermediate legacy bank factoring at enterprise grade.</p>`,
+            metrics: [
+                { val:'$480M+', lbl:'Invoice Volume Transacted', sub:'Across 1,200+ SME sellers and 85 institutional buyers within 18 months of platform launch' },
+                { val:'62%', lbl:'Reduction in Seller DSO', sub:'Average Days Sales Outstanding dropped from 47 days to 18 days post-platform adoption' }
+            ],
+            tags:['Ethereum Smart Contracts','Hyperledger Fabric','Cross-Chain Bridge','Invoice Liquidity Exchange','Reverse Dutch Auction','Digital Wallets','AR Monetisation','Jumio · Onfido KYC','World-Check AML','Gradient Boosted Models'],
+            footnote:'"InvoiceFlow Exchange™" is a pseudonym. One of the earliest hybrid Ethereum–Hyperledger Fabric interoperability implementations in production trade finance globally. Engagement delivered 2017–2019.'
+        },
+        cs4: {
+            eyebrow: 'Engineering Leadership · Platform Engineering · DevEx · OKR · 2021–2023',
+            title: 'Building a 120-Person High-Velocity Engineering Organisation from a Standing Start',
+            body: `<p>Recruited as the founding engineering executive for a Series C enterprise SaaS company with a mandate to <strong>transform a 30-person contractor-heavy development group into a world-class, 120-person distributed engineering organisation</strong> capable of sustaining weekly production releases at enterprise quality standards. Began with a comprehensive <em>Engineering Capability Maturity Assessment</em> benchmarking delivery velocity, defect escape rates, on-call burden, and developer satisfaction against DORA (DevOps Research and Assessment) elite performer thresholds. The assessment surfaced critical gaps: a monolithic codebase with under 8% automated test coverage, a 14-week quarterly release cycle gated on manual regression QA, a 21-day engineer onboarding process, and a 28% annualised voluntary attrition rate driven by toil and organisational friction. Designed a <strong>three-horizon transformation roadmap</strong> — Stabilise, Accelerate, Lead — with each horizon carrying DORA metric targets, OKR-linked team commitments, and headcount milestones approved by the board.</p>
+            <p>Stood up a <strong>Platform Engineering function</strong> as the organisation's primary force multiplier — delivering an <em>Internal Developer Portal (IDP) on Backstage</em> with golden-path templates for every common service pattern (REST API, event consumer, batch job, ML inference endpoint), self-service environment provisioning, and automated compliance gates embedded directly in the CI/CD pipeline (GitHub Actions → ArgoCD → Kubernetes on EKS). The platform reduced new-engineer <strong>time-to-first-production-commit from 21 days to under 48 hours</strong> and eliminated 60% of recurring platform support tickets through self-service resolution. Instituted a <em>squad-based, stream-aligned delivery model</em> per Team Topologies principles — with teams owning full service lifecycle responsibility. Organisational structure was deliberately aligned to Conway's Law target architecture, accelerating autonomous decision-making and cutting cross-team dependency overhead by an estimated 40%.</p>
+            <p>Drove organisation-wide adoption of <strong>shift-left quality practices</strong> — SAST via Semgrep, DAST via OWASP ZAP, SCA via Snyk, and AI-assisted code review via GitHub Copilot — alongside feature-flag-driven continuous delivery enabling progressive rollouts with instant kill-switch capability. An <strong>OKR governance rhythm</strong> was embedded at team, group, and executive levels — with quarterly OKR planning, weekly engineering leadership syncs, and monthly Investment Review sessions treating technical debt as a first-class balance-sheet item rather than deferred maintenance. Over 18 months the organisation achieved a <strong>40-point Engineering NPS improvement</strong>, compressed voluntary attrition from 28% to 9%, reduced MTTR from 4 hours to under 22 minutes, and delivered the full Series C product roadmap commitment three quarters ahead of schedule.</p>`,
+            metrics: [
+                { val:'5×', lbl:'Release Velocity Increase', sub:'From 14-week quarterly cycles to weekly production releases; change failure rate sustained below 2%' },
+                { val:'+40pt', lbl:'Engineering NPS Improvement', sub:'Voluntary attrition reduced from 28% to 9%; 120 engineers across US, India, and Eastern Europe' }
+            ],
+            tags:['Backstage IDP','DORA Metrics','ArgoCD · GitOps','EKS · Kubernetes','SAST · DAST · SCA','GitHub Copilot','Squad Model','OKR Cadence','Conway\'s Law','Team Topologies'],
+            footnote:'Client identity withheld under NDA. DORA metrics validated via independent engineering effectiveness audit at 18-month mark. Engagement delivered 2021–2023.'
+        }
+    };
+
+    function openDrawer(key) {
+        const d = CS_FULL[key];
+        document.getElementById('csdEyebrow').textContent = d.eyebrow;
+        document.getElementById('csdBody').innerHTML = `
+            <h2 class="csd-title">${d.title}</h2>
+            <div class="csd-text">${d.body}</div>
+            <hr class="csd-divider">
+            <div class="csd-metrics">${d.metrics.map(m=>`
+                <div class="csd-metric">
+                    <div class="csd-metric-val">${m.val}</div>
+                    <div class="csd-metric-lbl">${m.lbl}</div>
+                    <div class="csd-metric-sub">${m.sub}</div>
+                </div>`).join('')}
+            </div>
+            <div class="csd-tags">${d.tags.map(t=>`<span class="csd-tag">${t}</span>`).join('')}</div>
+            <div class="csd-footnote"><i class="fas fa-shield-halved"></i>${d.footnote}</div>`;
+        document.getElementById('csDrawerOverlay').classList.add('open');
+        document.getElementById('csDrawer').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer(e) {
+        if (e.target === document.getElementById('csDrawerOverlay')) {
+            document.getElementById('csDrawerOverlay').classList.remove('open');
+            document.getElementById('csDrawer').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.getElementById('csDrawerOverlay').classList.remove('open');
+            document.getElementById('csDrawer').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+    </script>
+
+
+<!-- ===== Compact Contact (success popup with thumbs-up) ===== -->
+<section id="contact" class="mc-section">
+  <style>
+    .mc-section{padding:56px 0;background:#0f1724}
+    .mc-wrap{max-width:720px;margin:0 auto;padding:0 16px}
+    .mc-h{margin:0 0 10px;font-size:1.8rem;color:#e6edf3}
+    .mc-cta{display:flex;gap:12px;margin:8px 0 22px;flex-wrap:wrap}
+    .mc-cta a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+      border-radius:10px;text-decoration:none;border:1px solid #2b3a4d;background:#0a1220}
+    .mc-linkedin{color:#bcd2ff}.mc-cal{color:#a5f3fc}
+    .mc-form label{display:block;margin:14px 0 6px;color:#c9d1d9;font-size:.9rem}
+    .mc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:640px){.mc-row{grid-template-columns:1fr}}
+    .mc-form input,.mc-form select,.mc-form textarea{
+      width:100%;display:block;background:#1c2633;color:#e6edf3;border:1px solid #2b3a4d;
+      border-radius:10px;padding:10px 12px;outline:none}
+    .mc-form input:focus,.mc-form select:focus,.mc-form textarea:focus{
+      border-color:#4c86ff;box-shadow:0 0 0 3px rgba(76,134,255,.15)}
+    .mc-btn{margin-top:14px;padding:10px 16px;border:0;border-radius:999px;background:#4c86ff;
+      color:#fff;cursor:pointer;font-weight:600;box-shadow:0 6px 18px rgba(76,134,255,.25);
+      transition:transform .15s,filter .15s}
+    .mc-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .mc-btn:disabled{opacity:.6;cursor:not-allowed}
+
+/* Centered thumbs-up toast */
+.mc-toast{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-48%) scale(.96);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #0b1322;
+  color: #e6edf3;
+  border: 1px solid #2b3a4d;
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease, transform 1s ease;  /* 1s fade in/out */
+}
+.mc-toast.show{
+  opacity: 1;
+  transform: translate(-50%,-50%) scale(1);
+}
+.mc-toast.hide{
+  opacity: 0;
+  transform: translate(-50%,-52%) scale(.98);
+}
+
+/* Bigger icon + text */
+.mc-toast .icon{
+  width: 56px; height: 56px; flex: 0 0 56px;
+  display: grid; place-items: center; border-radius: 50%;
+  font-size: 26px;
+}
+.mc-toast.ok .icon{ background:#1f6f3a; color:#3ff58f; border:1px solid #2e9b57; }
+.mc-toast.err .icon{ background:#3a1f1f; color:#ff8e8e; border:1px solid #b64a4a; }
+.mc-toast .msg{ font-size: 1.15rem; font-weight: 600; line-height: 1.25; }
+
+@media (max-width: 560px){
+  .mc-toast{ padding:14px 16px }
+  .mc-toast .icon{ width:48px; height:48px; font-size:22px }
+  .mc-toast .msg{ font-size:1rem }
+}
+  </style>
+
+  <div class="mc-wrap">
+    <h2 class="mc-h">Get in touch</h2>
+
+    <div class="mc-cta">
+      <a class="mc-linkedin" href="https://www.linkedin.com/in/uday2" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
+      <a class="mc-cal" href="https://calendly.com/aurus-ai1" target="_blank" rel="noopener">📅 Schedule a time</a>
+    </div>
+
+    <form id="mcForm" class="mc-form" novalidate>
+      <div class="mc-row">
+        <div>
+          <label for="mcFirst">First name *</label>
+          <input id="mcFirst" name="first_name" required autocomplete="given-name">
+        </div>
+        <div>
+          <label for="mcLast">Last name *</label>
+          <input id="mcLast" name="last_name" required autocomplete="family-name">
+        </div>
+      </div>
+
+      <label for="mcEmail">Email address *</label>
+      <input type="email" id="mcEmail" name="email" required autocomplete="email">
+
+      <label for="mcSubject">Subject *</label>
+      <select id="mcSubject" name="subject" required>
+        <option value="" disabled selected>Select…</option>
+        <option value="aurus-investment">Aurus.ai — Investment / Partnership</option>
+        <option value="investor-intro">Investor Introduction</option>
+        <option value="fundraising">Fundraising / Investor Relations</option>
+        <option value="strategic-partnership">Strategic Partnership / JV</option>
+        <option value="mna">M&A / Acquisition Discussion</option>
+      </select>
+
+      <label for="mcMsg">Message *</label>
+      <textarea id="mcMsg" name="message" rows="5" required placeholder="What would you like to discuss?"></textarea>
+
+      <button type="button" id="mcSend" class="mc-btn">Contact Uday</button>
+
+      <!-- Formspree helpers -->
+      <input type="hidden" name="_subject" value="Contact via uday.info">
+      <input type="text" name="_gotcha" style="display:none">
+    </form>
+
+    <!-- the popup -->
+    <div id="mcToast" class="mc-toast" role="status" aria-live="polite"></div>
+  </div>
+
+<script>
+(function(){
+  const form  = document.getElementById('mcForm');
+  const btn   = document.getElementById('mcSend');
+  const toast = document.getElementById('mcToast');
+
+  function showToast(msg, ok=true){
+    toast.innerHTML =
+      '<span class="icon"><i class="fa-solid '+
+      (ok ? 'fa-thumbs-up' : 'fa-triangle-exclamation')+
+      '"></i></span><span class="msg">'+ msg +'</span>';
+
+    // reset classes then trigger fade-in
+    toast.className = 'mc-toast ' + (ok ? 'ok' : 'err');
+    requestAnimationFrame(()=> toast.classList.add('show'));
+
+    // after 2s (1s fade-in + 1s visible), start fade-out (1s)
+    setTimeout(()=> toast.classList.add('hide'), 4000);
+
+    // after total 5s, clear it
+    setTimeout(()=>{
+      toast.className = 'mc-toast';
+      toast.innerHTML = '';
+    }, 5000);
+  }
+
+  // keep your existing submit handler; just ensure it calls:
+  // showToast('Thank You, your message is received.', true);
+  btn.addEventListener('click', async () => {
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    btn.disabled = true;
+    try{
+      const res = await fetch('https://formspree.io/f/xvgbrzoq', {
+        method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}
+      });
+      if(res.ok){ form.reset(); showToast('Thank You, your message is received.', true); }
+      else{ showToast('Unable to send. Please try again.', false); }
+    }catch(e){ showToast('Network error. Please try again.', false); }
+    finally{ setTimeout(()=>btn.disabled=false, 3200); }
+  });
+})();
+</script>
+
+</section>
+<!-- ===== /Compact Contact ===== -->
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>UDAY AYYAGARI</h3>
+                    <p>Visionary Technology Leader</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#podcasts">Media</a>
+                        <a href="#thought-leadership">Insights</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <a href="https://linkedin.com/in/uday2" target="_blank">LinkedIn</a>
+                        <a href="/cdn-cgi/l/email-protection#cebbaaafb78ebbaaafb7e0a7a0a8a1">Email</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/uday2" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Uday Ayyagari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+<!-- minimal JS: submit via fetch → no redirect + 2s thank-you -->
+<script>
+(function(){
+  const form  = document.getElementById('miniContactForm');
+  const btn   = document.getElementById('miniSend');
+  const toast = document.getElementById('miniToast');
+
+  function pop(msg, ok=true){
+    toast.textContent = msg;
+    toast.className = 'mini-toast show ' + (ok ? 'ok' : 'err');
+    setTimeout(()=> toast.className = 'mini-toast', 2000);
+  }
+
+  btn.addEventListener('click', async () => {
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    btn.disabled = true;
+    try{
+      const res = await fetch('https://formspree.io/f/xvgbrzoq', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){ form.reset(); pop('Thanks! I’ll be in touch.'); }
+      else { pop('Could not send. Please try again.', false); }
+    }catch(e){ pop('Network error. Try again.', false); }
+    finally { setTimeout(()=>btn.disabled=false, 2500); }
+  });
+})();
+</script>
+    <!-- ════════════════════════════════════════════════════════════════
+         COOKIE CONSENT ARCHITECTURE
+         4 categories: Essential (locked) | Analytics | Functional | Marketing
+         Saved to localStorage with version + 365-day expiry
+         GA4 and LinkedIn Insight only loaded on consent
+    ════════════════════════════════════════════════════════════════ -->
+    <style>
+        #ck-banner {
+            position:fixed; bottom:0; left:0; right:0; z-index:9500;
+            background:linear-gradient(0deg,rgba(6,10,22,0.99),rgba(10,16,32,0.97));
+            border-top:1px solid rgba(100,180,255,0.2);
+            padding:20px 28px; display:flex; flex-wrap:wrap;
+            align-items:center; gap:16px; backdrop-filter:blur(12px);
+            box-shadow:0 -8px 40px rgba(0,0,0,0.5);
+            transform:translateY(100%); transition:transform 0.4s cubic-bezier(.4,0,.2,1);
+        }
+        #ck-banner.visible { transform:translateY(0); }
+        #ck-banner.hidden  { display:none; }
+        .ck-icon { width:44px;height:44px;border-radius:12px;background:rgba(100,180,255,0.1);
+            border:1px solid rgba(100,180,255,0.2);display:flex;align-items:center;
+            justify-content:center;font-size:20px;flex-shrink:0; }
+        .ck-text { flex:1; min-width:220px; }
+        .ck-text strong { display:block;font-size:0.9rem;color:#e8eaf6;font-weight:700;margin-bottom:3px; }
+        .ck-text p { font-size:0.77rem;color:rgba(255,255,255,0.48);margin:0;line-height:1.5; }
+        .ck-text a { color:#64b5f6;text-decoration:underline;cursor:pointer; }
+        .ck-actions { display:flex;gap:10px;flex-wrap:wrap;align-items:center; }
+        .ck-btn { padding:9px 20px;border-radius:999px;font-size:0.8rem;font-weight:700;
+            cursor:pointer;border:none;transition:all 0.15s;white-space:nowrap; }
+        .ck-btn-accept { background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;
+            box-shadow:0 4px 14px rgba(26,115,232,0.35); }
+        .ck-btn-accept:hover { filter:brightness(1.1);transform:translateY(-1px); }
+        .ck-btn-reject { background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);
+            border:1px solid rgba(255,255,255,0.12); }
+        .ck-btn-reject:hover { background:rgba(255,255,255,0.1);color:#fff; }
+        .ck-btn-manage { background:transparent;color:#64b5f6;border:1px solid rgba(100,180,255,0.35); }
+        .ck-btn-manage:hover { background:rgba(100,180,255,0.08); }
+
+        /* Preferences Modal */
+        #ck-overlay { display:none;position:fixed;inset:0;background:rgba(5,8,20,0.85);
+            backdrop-filter:blur(8px);z-index:9800;align-items:center;justify-content:center;padding:20px; }
+        #ck-overlay.open { display:flex; }
+        #ck-modal { background:linear-gradient(160deg,#0d1528,#091020);border:1px solid rgba(100,180,255,0.2);
+            border-radius:20px;max-width:520px;width:100%;max-height:88vh;overflow-y:auto;
+            box-shadow:0 24px 72px rgba(0,0,0,0.7);animation:ckIn 0.26s cubic-bezier(.34,1.5,.64,1); }
+        @keyframes ckIn { from{opacity:0;transform:scale(0.93) translateY(16px)} to{opacity:1;transform:scale(1) translateY(0)} }
+        .ck-mh { padding:22px 24px 16px;border-bottom:1px solid rgba(255,255,255,0.07);
+            display:flex;align-items:flex-start;justify-content:space-between;gap:12px; }
+        .ck-mh h3 { font-size:1.05rem;font-weight:800;color:#fff;margin:0 0 3px; }
+        .ck-mh p  { font-size:0.74rem;color:rgba(255,255,255,0.42);margin:0; }
+        .ck-mclose { width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.07);
+            border:none;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;
+            justify-content:center;font-size:12px;flex-shrink:0;transition:background 0.15s; }
+        .ck-mclose:hover { background:rgba(255,255,255,0.16);color:#fff; }
+        .ck-cat { padding:15px 24px;border-bottom:1px solid rgba(255,255,255,0.05); }
+        .ck-cat:last-child { border-bottom:none; }
+        .ck-ch { display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:5px; }
+        .ck-cn { display:flex;align-items:center;gap:10px; }
+        .ck-ci { width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px; }
+        .ck-ci.e{background:rgba(52,211,153,0.12);color:#34d399}
+        .ck-ci.a{background:rgba(100,180,255,0.12);color:#64b5f6}
+        .ck-ci.f{background:rgba(167,139,250,0.12);color:#a78bfa}
+        .ck-ci.m{background:rgba(251,146,60,0.12);color:#fb923c}
+        .ck-ct { font-size:0.84rem;font-weight:700;color:#e8eaf6; }
+        .ck-badge { font-size:0.59rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+            padding:2px 7px;border-radius:20px;background:rgba(52,211,153,0.12);
+            color:#34d399;border:1px solid rgba(52,211,153,0.25);margin-left:6px; }
+        .ck-cd { font-size:0.75rem;color:rgba(255,255,255,0.38);line-height:1.5;margin-top:4px; }
+        .ck-tog { position:relative;flex-shrink:0; }
+        .ck-tog input { opacity:0;width:0;height:0;position:absolute; }
+        .ck-track { display:block;width:44px;height:24px;border-radius:12px;
+            background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+            cursor:pointer;transition:background 0.2s,border-color 0.2s;position:relative; }
+        .ck-tog input:checked + .ck-track { background:#1a73e8;border-color:#1a73e8; }
+        .ck-tog input:disabled + .ck-track { background:rgba(52,211,153,0.35);border-color:rgba(52,211,153,0.4);cursor:not-allowed;opacity:0.75; }
+        .ck-thumb { position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;
+            background:#fff;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.3);pointer-events:none; }
+        .ck-tog input:checked ~ .ck-thumb,
+        .ck-tog input:disabled ~ .ck-thumb { transform:translateX(20px); }
+        .ck-mf { padding:14px 24px;border-top:1px solid rgba(255,255,255,0.07);
+            display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap; }
+        .ck-mf .ck-btn { font-size:0.8rem; }
+        #ck-pill { position:fixed;bottom:16px;left:16px;z-index:9000;
+            background:rgba(10,16,32,0.9);border:1px solid rgba(100,180,255,0.18);
+            border-radius:999px;padding:6px 14px;display:none;align-items:center;gap:7px;
+            font-size:0.71rem;color:rgba(255,255,255,0.45);cursor:pointer;backdrop-filter:blur(8px);
+            transition:border-color 0.15s,color 0.15s; }
+        #ck-pill:hover { border-color:#64b5f6;color:#64b5f6; }
+        #ck-pill.show { display:flex; }
+        @media(max-width:560px){
+            #ck-banner{padding:16px}
+            .ck-actions{width:100%}
+            .ck-btn{flex:1;text-align:center}
+        }
+    </style>
+
+    <!-- Banner -->
+    <div id="ck-banner" role="dialog" aria-label="Cookie Consent">
+        <div class="ck-icon">🍪</div>
+        <div class="ck-text">
+            <strong>We use cookies to enhance your experience</strong>
+            <p>Essential cookies keep the site running. Optional cookies help us understand engagement and improve content.
+               <a onclick="ckOpenModal()">Manage your preferences</a>, or accept all to continue.</p>
+        </div>
+        <div class="ck-actions">
+            <button class="ck-btn ck-btn-accept"  onclick="ckAcceptAll()">Accept All</button>
+            <button class="ck-btn ck-btn-reject"  onclick="ckRejectAll()">Essential Only</button>
+            <button class="ck-btn ck-btn-manage"  onclick="ckOpenModal()">Manage Preferences</button>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div id="ck-overlay">
+        <div id="ck-modal">
+            <div class="ck-mh">
+                <div><h3>Privacy &amp; Cookie Preferences</h3><p>Choose which cookies you allow. Changes are saved immediately.</p></div>
+                <button class="ck-mclose" onclick="ckCloseModal()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="ck-cat">
+                <div class="ck-ch">
+                    <div class="ck-cn"><div class="ck-ci e"><i class="fas fa-shield-halved"></i></div>
+                        <span class="ck-ct">Essential<span class="ck-badge">Always On</span></span></div>
+                    <label class="ck-tog"><input type="checkbox" id="ck-e" checked disabled><span class="ck-track"></span><span class="ck-thumb"></span></label>
+                </div>
+                <p class="ck-cd">Required for core functionality: session management, CSRF protection, the contact form, and security tokens. Cannot be disabled — the site would not function without them. No personal data is shared externally.</p>
+            </div>
+
+            <div class="ck-cat">
+                <div class="ck-ch">
+                    <div class="ck-cn"><div class="ck-ci a"><i class="fas fa-chart-bar"></i></div>
+                        <span class="ck-ct">Analytics &amp; Performance</span></div>
+                    <label class="ck-tog"><input type="checkbox" id="ck-a"><span class="ck-track"></span><span class="ck-thumb"></span></label>
+                </div>
+                <p class="ck-cd">Google Analytics 4 with IP anonymisation — measures page views, session duration, traffic sources, and which sections generate most engagement. Data is aggregated; no individuals are identified. Helps prioritise content improvements.</p>
+            </div>
+
+            <div class="ck-cat">
+                <div class="ck-ch">
+                    <div class="ck-cn"><div class="ck-ci f"><i class="fas fa-sliders"></i></div>
+                        <span class="ck-ct">Functional &amp; Personalisation</span></div>
+                    <label class="ck-tog"><input type="checkbox" id="ck-f"><span class="ck-track"></span><span class="ck-thumb"></span></label>
+                </div>
+                <p class="ck-cd">Remembers preferences such as the last case study viewed and contact form subject selections. Stored in localStorage only — no data leaves your browser. Enhances continuity across return visits.</p>
+            </div>
+
+            <div class="ck-cat">
+                <div class="ck-ch">
+                    <div class="ck-cn"><div class="ck-ci m"><i class="fas fa-bullhorn"></i></div>
+                        <span class="ck-ct">Marketing &amp; Retargeting</span></div>
+                    <label class="ck-tog"><input type="checkbox" id="ck-m"><span class="ck-track"></span><span class="ck-thumb"></span></label>
+                </div>
+                <p class="ck-cd">LinkedIn Insight Tag enabling retargeting to enterprise audiences relevant to Aurus.ai go-to-market programmes. Tracks whether you arrived from a LinkedIn campaign. Opting out does not affect site functionality.</p>
+            </div>
+
+            <div class="ck-mf">
+                <button class="ck-btn ck-btn-reject" onclick="ckRejectAll();ckCloseModal()">Essential Only</button>
+                <button class="ck-btn ck-btn-manage" onclick="ckSavePrefs();ckCloseModal()" style="border-color:rgba(167,139,250,0.4);color:#a78bfa">Save My Choices</button>
+                <button class="ck-btn ck-btn-accept" onclick="ckAcceptAll();ckCloseModal()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Persistent pill -->
+    <div id="ck-pill" title="Manage cookie preferences" onclick="ckOpenModal()">🍪 <span>Cookie Settings</span></div>
+
+    <script>
+    /* ══ Cookie Consent Engine ══ */
+    const CK_KEY = 'ua_cookie_v1';
+    const CK_DAYS = 365;
+
+    function ckLoad() {
+        try {
+            const d = JSON.parse(localStorage.getItem(CK_KEY) || 'null');
+            if (!d || Date.now() > d.exp) { localStorage.removeItem(CK_KEY); return null; }
+            return d.p;
+        } catch(e) { return null; }
+    }
+    function ckSave(p) {
+        localStorage.setItem(CK_KEY, JSON.stringify({
+            ver:'1.0', exp: Date.now() + CK_DAYS*86400000,
+            p, at: new Date().toISOString()
+        }));
+    }
+    function ckApply(p) {
+        /* GA4 */
+        if (p.analytics && !document.getElementById('ga4-s')) {
+            const s = document.createElement('script');
+            s.id='ga4-s'; s.async=true;
+            s.src='https://www.googletagmanager.com/gtag/js?id=G-CKPSJPB91B';
+            document.head.appendChild(s);
+            window.dataLayer=window.dataLayer||[];
+            window.gtag=function(){dataLayer.push(arguments);};
+            gtag('js',new Date()); gtag('config','G-CKPSJPB91B',{anonymize_ip:true});
+        }
+        /* LinkedIn */
+        if (p.marketing && !document.getElementById('li-s')) {
+            const s=document.createElement('script');
+            s.id='li-s'; s.async=true; s.defer=true;
+            s.src='https://snap.licdn.com/li.lms-analytics/insight.min.js';
+            document.head.appendChild(s);
+        }
+        /* Functional flag */
+        p.functional ? localStorage.setItem('ua_func','1') : localStorage.removeItem('ua_func');
+    }
+    function ckSyncToggles(p) {
+        document.getElementById('ck-a').checked = p.analytics||false;
+        document.getElementById('ck-f').checked = p.functional||false;
+        document.getElementById('ck-m').checked = p.marketing||false;
+    }
+    function ckReadToggles() {
+        return { essential:true,
+            analytics: document.getElementById('ck-a').checked,
+            functional:document.getElementById('ck-f').checked,
+            marketing: document.getElementById('ck-m').checked };
+    }
+    function ckAcceptAll() {
+        const p={essential:true,analytics:true,functional:true,marketing:true};
+        ckSave(p); ckApply(p); ckSyncToggles(p); ckHideBanner();
+    }
+    function ckRejectAll() {
+        const p={essential:true,analytics:false,functional:false,marketing:false};
+        ckSave(p); ckApply(p); ckSyncToggles(p); ckHideBanner();
+    }
+    function ckSavePrefs() {
+        const p=ckReadToggles(); ckSave(p); ckApply(p); ckHideBanner();
+    }
+    function ckHideBanner() {
+        const b=document.getElementById('ck-banner');
+        b.classList.remove('visible');
+        setTimeout(()=>b.classList.add('hidden'),420);
+        document.getElementById('ck-pill').classList.add('show');
+    }
+    function ckOpenModal()  { document.getElementById('ck-overlay').classList.add('open'); }
+    function ckCloseModal() { document.getElementById('ck-overlay').classList.remove('open'); }
+
+    document.getElementById('ck-overlay').addEventListener('click',function(e){
+        if(e.target===this) ckCloseModal();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const stored = ckLoad();
+        if (stored) {
+            ckSyncToggles(stored); ckApply(stored);
+            document.getElementById('ck-banner').classList.add('hidden');
+            document.getElementById('ck-pill').classList.add('show');
+        } else {
+            setTimeout(function() {
+                const b=document.getElementById('ck-banner');
+                b.classList.remove('hidden');
+                requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.add('visible')));
+            }, 1400);
+        }
+    });
+    </script>
+
+    <!-- ══ THEME SWITCHER ══ -->
+    <div id="theme-switcher" role="group" aria-label="Choose colour theme">
+        <button class="th-btn active" id="th-dark"  data-theme="dark"  data-label="Dark"       aria-label="Dark theme"       onclick="setTheme('dark')"  title="Dark theme">🌙</button>
+        <button class="th-btn"        id="th-light" data-theme="light" data-label="Executive"  aria-label="Executive theme"  onclick="setTheme('light')" title="Light / Executive theme">☀️</button>
+        <button class="th-btn"        id="th-genz"  data-theme="genz"  data-label="Neo"        aria-label="Neo theme"        onclick="setTheme('genz')"  title="Gen-Z / Neo theme">⚡</button>
+    </div>
+
+    <script>
+    /* ══ Theme Engine ══ */
+    (function() {
+        const THEME_KEY = 'ua_theme_v1';
+        const root = document.documentElement;
+
+        function setTheme(t, save) {
+            root.setAttribute('data-theme', t);
+            document.querySelectorAll('.th-btn').forEach(b => {
+                const isActive = b.dataset.theme === t;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+            // Only persist if functional cookies consented (or not yet decided)
+            const funcOk = localStorage.getItem('ua_func') !== '0';
+            if (save !== false && funcOk) {
+                localStorage.setItem(THEME_KEY, t);
+            }
+        }
+
+        // Expose globally for onclick attrs
+        window.setTheme = function(t) { setTheme(t, true); };
+
+        // Bootstrap: stored pref → prefers-color-scheme → default dark
+        function initTheme() {
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored && ['dark','light','genz'].includes(stored)) {
+                setTheme(stored, false);
+                return;
+            }
+            // Respect OS preference for dark/light only (no genz auto)
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(prefersDark ? 'dark' : 'light', false);
+        }
+
+        // Run immediately (before DOMContentLoaded to prevent flash)
+        initTheme();
+
+        // Listen for OS theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            // Only auto-switch if no manual preference stored
+            if (!localStorage.getItem(THEME_KEY)) {
+                setTheme(e.matches ? 'dark' : 'light', false);
+            }
+        });
+    })();
+    </script>
+
+</body>
+</html>
