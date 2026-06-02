@@ -917,38 +917,211 @@
     </section>
 
     <!-- Podcasts & Media Section -->
+    <!-- ══ VIDEO LIGHTBOX SYSTEM ══ -->
+    <style>
+        /* ── Clickable media card ── */
+        .media-card.has-video { cursor: pointer; }
+        .media-card.has-video .media-thumbnail { position: relative; overflow: hidden; }
+        .media-card.has-video .media-thumbnail img {
+            transition: transform 0.35s ease;
+        }
+        .media-card.has-video:hover .media-thumbnail img {
+            transform: scale(1.04);
+        }
+
+        /* Play button pulse on hover */
+        .media-card.has-video:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.12);
+            background: rgba(255,50,50,0.92);
+            box-shadow: 0 0 0 10px rgba(255,50,50,0.18),
+                        0 0 0 22px rgba(255,50,50,0.08);
+        }
+
+        /* ── Video Lightbox ── */
+        #yt-overlay {
+            display: none;
+            position: fixed; inset: 0; z-index: 9700;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(10px);
+            align-items: center; justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        #yt-overlay.open { display: flex; }
+
+        #yt-box {
+            width: min(880px, 92vw);
+            animation: ytIn 0.3s cubic-bezier(.34,1.3,.64,1);
+        }
+        @keyframes ytIn {
+            from { opacity:0; transform:scale(0.88) translateY(30px); }
+            to   { opacity:1; transform:scale(1) translateY(0); }
+        }
+
+        /* Top bar */
+        #yt-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 12px; gap: 16px;
+        }
+        #yt-meta { display: flex; flex-direction: column; gap: 3px; }
+        #yt-badge {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: #ff4444;
+            background: rgba(255,68,68,0.12);
+            border: 1px solid rgba(255,68,68,0.25);
+            padding: 2px 9px; border-radius: 20px;
+            display: inline-block; width: fit-content;
+        }
+        #yt-title {
+            font-size: 1rem; font-weight: 700; color: #fff;
+            line-height: 1.3; margin: 0;
+        }
+        #yt-close {
+            width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 15px;
+            transition: background 0.15s, color 0.15s, transform 0.15s;
+        }
+        #yt-close:hover { background: rgba(255,255,255,0.18); color: #fff; transform: rotate(90deg); }
+
+        /* 16:9 iframe wrapper */
+        #yt-frame-wrap {
+            position: relative; width: 100%; padding-top: 56.25%;
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.8),
+                        0 0 0 1px rgba(255,255,255,0.07);
+        }
+        #yt-iframe {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%; border: none;
+        }
+
+        /* Bottom actions */
+        #yt-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-top: 14px; gap: 12px; flex-wrap: wrap;
+        }
+        #yt-hint {
+            font-size: 0.72rem; color: rgba(255,255,255,0.32);
+            display: flex; align-items: center; gap: 6px;
+        }
+        #yt-hint kbd {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 4px; padding: 1px 6px; font-size: 0.68rem; color: rgba(255,255,255,0.45);
+        }
+        .yt-ext-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-size: 0.75rem; font-weight: 600;
+            color: rgba(255,255,255,0.55);
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            padding: 6px 16px; border-radius: 999px;
+            cursor: pointer; text-decoration: none;
+            transition: all 0.15s;
+        }
+        .yt-ext-btn:hover { color: #fff; border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.1); }
+
+        @media(max-width: 600px) {
+            #yt-title { font-size: 0.85rem; }
+            #yt-footer { justify-content: center; }
+        }
+    </style>
+
+    <!-- Video Lightbox -->
+    <div id="yt-overlay" role="dialog" aria-modal="true" aria-label="Video player"
+         onclick="if(event.target===this) ytClose()">
+        <div id="yt-box">
+            <div id="yt-header">
+                <div id="yt-meta">
+                    <span id="yt-badge">▶ Now Playing</span>
+                    <p id="yt-title"></p>
+                </div>
+                <button id="yt-close" onclick="ytClose()" aria-label="Close video">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="yt-frame-wrap">
+                <iframe id="yt-iframe" title="YouTube video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div id="yt-footer">
+                <span id="yt-hint"><kbd>Esc</kbd> to close</span>
+                <a id="yt-yt-link" class="yt-ext-btn" href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+
     <section id="podcasts" class="podcasts-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Media Presence & Speaking Engagements</h2>
+                <h2 class="section-title">Media Presence &amp; Speaking Engagements</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">Sharing insights on technology leadership and digital transformation across premier platforms</p>
             </div>
             <div class="media-grid">
-                <div class="media-card featured">
+
+                <!-- Card 1 (was #2): AI Unleashed / CTO Insights / RetrieveX — FEATURED -->
+                <div class="media-card featured has-video"
+                     onclick="ytOpen('CyasKPjs_N4','CTO Insights Series — Live On-Air: The AI &amp; RAG Economy (RetrieveX)','https://youtu.be/CyasKPjs_N4')"
+                     role="button" tabindex="0" aria-label="Play: CTO Insights Series — AI and RAG Economy">
                     <div class="media-thumbnail">
-                        <img src="assets/images/TEC-podcast.jpg?height=300&width=500" alt="Tech Leadership Podcast">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <img src="assets/images/AI-unleashed.jpg" alt="CTO Insights Series — AI and RAG Economy">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="media-content">
-                        <span class="media-type">FEATURED PODCAST</span>
+                        <span class="media-type">FEATURED · LIVE ON-AIR</span>
+                        <h3>CTO Insights Series — The AI &amp; RAG Economy</h3>
+                        <p>Live "On-Air" deep-dive into the AI and Retrieval-Augmented Generation economy at RetrieveX</p>
+                        <div class="media-meta">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-play-circle"></i> YouTube</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (was #1): The Future of Enterprise AI -->
+                <div class="media-card has-video"
+                     onclick="ytOpen('FmIO4DJlcUY','The Future of Enterprise AI — AI Implementation Strategies &amp; Governance','https://www.youtube.com/watch?v=FmIO4DJlcUY')"
+                     role="button" tabindex="0" aria-label="Play: The Future of Enterprise AI">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/TEC-podcast.jpg" alt="The Future of Enterprise AI">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">PODCAST</span>
                         <h3>The Future of Enterprise AI</h3>
-                        <p>Deep dive into AI implementation strategies and organizational transformation</p>
+                        <p>AI implementation strategies, value creation through governance, and organizational transformation</p>
                         <div class="media-meta">
                             <span><i class="fas fa-calendar"></i> Dec 2024</span>
                             <span><i class="fas fa-clock"></i> 45 min</span>
                         </div>
                     </div>
                 </div>
-                
+
+                <!-- Card 3: Digital Transformation Summit (no video yet) -->
                 <div class="media-card">
                     <div class="media-thumbnail">
-                        <img src="assets/images/AI-unleashed.jpg?height=200&width=350" alt="Tech Conference Keynote">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <img src="assets/images/GCPpanel-uday.jpg" alt="GCP Panel">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="media-content">
+                        <span class="media-type">PANEL</span>
+                        <h3>Innovation Leadership Panel</h3>
+                        <p>GCP Cloud Adoption in Enterprises — Building high-performance engineering teams</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Digital Transformation Summit Keynote -->
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="assets/images/uday-at-retrieveX.jpg" alt="Digital Transformation Summit 2024">
+                        <div class="play-button"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="media-content">
                         <span class="media-type">KEYNOTE</span>
@@ -957,51 +1130,54 @@
                     </div>
                 </div>
 
+                <!-- Card 5: Blog -->
                 <div class="media-card">
                     <div class="media-thumbnail">
-                        <img src="assets/images/uday-at-retrieveX.jpg?height=200&width=350" alt="Industry Interview">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <img src="assets/images/aiOppinERP.jpg" alt="The $30 trillion economy?">
                     </div>
                     <div class="media-content">
-                        <span class="media-type">INTERVIEW</span>
-                        <h3>CTO Insights Series</h3>
-			Live "On-Air", the AI and RAG economy (RetrieveX)
-                        <p>Leadership strategies for tech executives</p>
-                    </div>
-                </div>
-
-                <div class="media-card">
-                    <div class="media-thumbnail">
-                        <img src="assets/images/GCPpanel-uday.jpg?height=200&width=350" alt="Panel Discussion">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="media-content">
-                        <span class="media-type">PANEL</span>
-                        <h3>Innovation Leadership Panel</h3>
-			GCP Cloud Adoption in Enterprises (Panel)
-                        <p>Building high-performance engineering teams</p>
-                    </div>
-                </div>
-
-                <div class="media-card">
-                    <div class="media-thumbnail">
-                        <img src="assets/images/aiOppinERP.jpg?height=200&width=350" alt="The $30 trillion economy?">
-                    </div>
-                    <div class="media-content">
-                        <span class="media-type">Blog</span>
+                        <span class="media-type">BLOG</span>
                         <h3>Economic Significance of ERP Systems</h3>
-			The $30 Trillion Economy, on "Life Support"
-                        <p>Reimagining ERP with AI: From Legacy Burden to Growth Engine</p>
+                        <p>The $30 Trillion Economy on "Life Support" — Reimagining ERP with AI: From Legacy Burden to Growth Engine</p>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <script>
+    /* ══ YouTube Lightbox Engine ══ */
+    let _ytUrl = '';
+
+    function ytOpen(videoId, title, fullUrl) {
+        _ytUrl = fullUrl;
+        document.getElementById('yt-title').innerHTML = title;
+        document.getElementById('yt-iframe').src =
+            'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1&color=white';
+        document.getElementById('yt-yt-link').href = fullUrl;
+        document.getElementById('yt-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function ytClose() {
+        document.getElementById('yt-overlay').classList.remove('open');
+        document.getElementById('yt-iframe').src = ''; // stops video audio
+        document.body.style.overflow = '';
+    }
+
+    // Keyboard: Space/Enter on focused cards; Escape to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('yt-overlay').classList.contains('open')) {
+            ytClose();
+        }
+    });
+    document.querySelectorAll('.has-video').forEach(function(card) {
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+        });
+    });
+    </script>
 
     <!-- Thought Leadership Section -->
     <!-- ══════════════════════════════════════════════════════
