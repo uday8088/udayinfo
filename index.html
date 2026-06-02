@@ -2635,5 +2635,87 @@
     })();
     </script>
 
+    <!-- ══ VISITOR TRACKING ══ -->
+    <script>
+    (function() {
+        // Don't log your own visits from localhost
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+
+        // ── Browser / OS / Device detection ──
+        function getBrowser() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Edg/'))     return 'Edge';
+            if (ua.includes('Chrome/'))  return 'Chrome';
+            if (ua.includes('Firefox/')) return 'Firefox';
+            if (ua.includes('Safari/') && !ua.includes('Chrome')) return 'Safari';
+            if (ua.includes('OPR/') || ua.includes('Opera/')) return 'Opera';
+            return 'Other';
+        }
+        function getOS() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Windows NT 10')) return 'Windows 10/11';
+            if (ua.includes('Windows'))       return 'Windows';
+            if (ua.includes('Mac OS X'))      return 'macOS';
+            if (ua.includes('iPhone'))        return 'iOS (iPhone)';
+            if (ua.includes('iPad'))          return 'iOS (iPad)';
+            if (ua.includes('Android'))       return 'Android';
+            if (ua.includes('Linux'))         return 'Linux';
+            return 'Other';
+        }
+        function getDevice() {
+            const ua = navigator.userAgent;
+            if (ua.includes('iPhone') || ua.includes('Android') && ua.includes('Mobile')) return 'Mobile';
+            if (ua.includes('iPad') || ua.includes('Android')) return 'Tablet';
+            return 'Desktop';
+        }
+
+        // ── Collect what we know without any API call ──
+        const local = {
+            ts:       Date.now(),
+            browser:  getBrowser(),
+            os:       getOS(),
+            device:   getDevice(),
+            screen:   screen.width + 'x' + screen.height,
+            language: navigator.language || '',
+            referrer: document.referrer || '',
+            pageUrl:  location.href
+        };
+
+        // ── Hit ipapi.co for geo/IP (free, no key needed) ──
+        fetch('https://ipapi.co/json/', { cache: 'no-store' })
+            .then(r => r.json())
+            .then(function(geo) {
+                const payload = Object.assign({}, local, {
+                    ip:          geo.ip          || '',
+                    city:        geo.city        || '',
+                    region:      geo.region      || '',
+                    country:     geo.country_name|| '',
+                    countryCode: geo.country_code|| '',
+                    lat:         geo.latitude    || '',
+                    lon:         geo.longitude   || '',
+                    org:         geo.org         || '',
+                    timezone:    geo.timezone    || ''
+                });
+                sendToSheet(payload);
+            })
+            .catch(function() {
+                // geo failed — still log what we have
+                sendToSheet(local);
+            });
+
+        function sendToSheet(payload) {
+            // Replace THIS_URL with your deployed Apps Script Web App URL
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyba_KhZ6Tnvh5TBquy6E_xSvlG8wUYbYjnfCDl3cjGBl5eISRvg0z3sBmSUdk-kqRS5Q/exec';
+            if (APPS_SCRIPT_URL.includes('PASTE')) return; // not wired yet
+
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode:   'no-cors',     // avoids CORS preflight
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(function() {}); // silent fail — never break the page
+        }
+    })();
+    </script>
 </body>
 </html>
