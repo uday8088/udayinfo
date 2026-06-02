@@ -919,8 +919,22 @@
     <!-- Podcasts & Media Section -->
     <!-- ══ VIDEO LIGHTBOX — CLEAN CINEMA STYLE ══ -->
     <style>
-        /* ── Featured card: ultra-slim content band ── */
+        /* ── Featured card: thumbnail fills card, label pinned to bottom ── */
+        .media-card.featured {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        .media-card.featured .media-thumbnail {
+            flex: 1 1 auto !important;
+            min-height: 0 !important;
+        }
+        .media-card.featured .media-thumbnail img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
         .media-card.featured .media-content {
+            flex: 0 0 auto !important;
             padding: 8px 14px 10px !important;
         }
         .media-card.featured .media-content h3 {
@@ -931,12 +945,8 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .media-card.featured .media-content p {
-            display: none !important;
-        }
-        .media-card.featured .media-meta {
-            display: none !important;
-        }
+        .media-card.featured .media-content p    { display: none !important; }
+        .media-card.featured .media-meta         { display: none !important; }
         .media-card.featured .media-type {
             font-size: 0.58rem !important;
             margin-bottom: 0 !important;
