@@ -2419,19 +2419,21 @@
 
 <!-- Hosted-on badge: fixed top-right, just under the toolbar -->
 <style>
-  .hosted-badge{position:fixed;right:24px;top:110px;z-index:999;
+  .hosted-badge{position:fixed;right:34px;top:110px;z-index:999;
     font-family:inherit;font-size:13px;font-weight:500;letter-spacing:.3px;
-    color:#fff !important;text-decoration:none;background:transparent}
+    color:#334155 !important;text-decoration:none;padding:4px 10px;
+    background:rgba(226,236,250,.92);border-radius:999px;
+    box-shadow:0 0 18px 12px rgba(226,236,250,.92)}
   .hosted-badge:hover,.hosted-badge:focus-visible{text-decoration:underline}
   .hosted-badge .hb-aurus{color:#061C39;font-weight:700}
   .hosted-badge .hb-ai{color:#F5A623;font-weight:700}
-  @media (max-width:600px){.hosted-badge{right:12px;font-size:12px}}
+  @media (max-width:600px){.hosted-badge{right:18px;font-size:12px}}
 </style>
 <a class="hosted-badge" href="https://suite.aurus.ai" target="_blank" rel="noopener">This site is hosted on <span class="hb-aurus">aurus</span><span class="hb-ai">.ai</span></a>
 <script>
   (function(){
     var b=document.querySelector('.hosted-badge'),n=document.querySelector('.navbar');
-    function place(){ if(b&&n){ b.style.top=(n.getBoundingClientRect().bottom+10)+'px'; } }
+    function place(){ if(b&&n){ b.style.top=(n.getBoundingClientRect().bottom+24)+'px'; } }
     window.addEventListener('load',place);window.addEventListener('resize',place);
     window.addEventListener('scroll',place,{passive:true});place();
   })();
