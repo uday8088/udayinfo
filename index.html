@@ -2421,13 +2421,13 @@
 <style>
   .hosted-badge{position:fixed;right:24px;top:110px;z-index:999;
     font-family:inherit;font-size:13px;font-weight:500;letter-spacing:.3px;
-    color:#fff !important;text-decoration:none;padding:6px 14px;border-radius:999px;
-    background:rgba(6,28,57,.85);border:1px solid rgba(245,166,35,.55);
-    box-shadow:0 4px 14px rgba(0,0,0,.25);backdrop-filter:blur(6px);transition:border-color .2s,background .2s}
-  .hosted-badge:hover,.hosted-badge:focus-visible{border-color:#F5A623;background:rgba(6,28,57,.95);color:#fff !important}
-  @media (max-width:600px){.hosted-badge{right:12px;font-size:12px;padding:5px 11px}}
+    color:#fff !important;text-decoration:none;background:transparent}
+  .hosted-badge:hover,.hosted-badge:focus-visible{text-decoration:underline}
+  .hosted-badge .hb-aurus{color:#061C39;font-weight:700}
+  .hosted-badge .hb-ai{color:#F5A623;font-weight:700}
+  @media (max-width:600px){.hosted-badge{right:12px;font-size:12px}}
 </style>
-<a class="hosted-badge" href="https://suite.aurus.ai" target="_blank" rel="noopener">This site is hosted on aurus.ai</a>
+<a class="hosted-badge" href="https://suite.aurus.ai" target="_blank" rel="noopener">This site is hosted on <span class="hb-aurus">aurus</span><span class="hb-ai">.ai</span></a>
 <script>
   (function(){
     var b=document.querySelector('.hosted-badge'),n=document.querySelector('.navbar');
